@@ -1,0 +1,26 @@
+[
+  {
+    "naslov": "Zamjena starog zastora rolete",
+    "lokacija": "Zagreb",
+    "opis": "Izgorjele i napukle lamele zamijenjene novim zastorom u postojećoj kutiji.",
+    "prije": "/galerija/ilustracija-1-prije.svg",
+    "poslije": "/galerija/ilustracija-1-poslije.svg",
+    "ilustracija": true
+  },
+  {
+    "naslov": "Roleta koja je visjela ukoso",
+    "lokacija": "Karlovac",
+    "opis": "Zamijenjeni potrgani vješači i ležaj, roleta ponovno ide ravno do kraja.",
+    "prije": "/galerija/ilustracija-2-prije.svg",
+    "poslije": "/galerija/ilustracija-2-poslije.svg",
+    "ilustracija": true
+  },
+  {
+    "naslov": "Zamjena puknute gurtne",
+    "lokacija": "Zagreb",
+    "opis": "Nova gurtna i automat za namatanje na balkonskim vratima.",
+    "prije": "/galerija/ilustracija-3-prije.svg",
+    "poslije": "/galerija/ilustracija-3-poslije.svg",
+    "ilustracija": true
+  }
+]

@@ -1,0 +1,9 @@
+{
+  "buildCommand": "node build.js",
+  "outputDirectory": "dist",
+  "framework": null,
+  "trailingSlash": true,
+  "headers": [
+    { "source": "/(.*)\\.(svg|jpg|jpeg|png|webp|avif)", "headers": [{ "key": "Cache-Control", "value": "public, max-age=2592000" }] }
+  ]
+}

@@ -1,26 +1,52 @@
 [
   {
-    "naslov": "Zamjena starog zastora rolete",
-    "lokacija": "Zagreb",
-    "opis": "Izgorjele i napukle lamele zamijenjene novim zastorom u postojećoj kutiji.",
-    "prije": "/galerija/ilustracija-1-prije.svg",
-    "poslije": "/galerija/ilustracija-1-poslije.svg",
-    "ilustracija": true
+    "naslov": "Nove rolete na lođi",
+    "opis": "Stara roleta zamijenjena novim roletama.",
+    "prije": "/galerija/rad-1-prije.webp",
+    "poslije": "/galerija/rad-1-poslije.webp",
+    "w": 1000,
+    "h": 750,
+    "altPrije": "Prije: stara roleta na lođi",
+    "altPoslije": "Poslije: nove bijele rolete na lođi"
   },
   {
-    "naslov": "Roleta koja je visjela ukoso",
-    "lokacija": "Karlovac",
-    "opis": "Zamijenjeni potrgani vješači i ležaj, roleta ponovno ide ravno do kraja.",
-    "prije": "/galerija/ilustracija-2-prije.svg",
-    "poslije": "/galerija/ilustracija-2-poslije.svg",
-    "ilustracija": true
+    "naslov": "Zamjena starih roleta na lođi",
+    "opis": "Stare rolete zamijenjene novim bijelim roletama.",
+    "prije": "/galerija/rad-2-prije.webp",
+    "poslije": "/galerija/rad-2-poslije.webp",
+    "w": 1000,
+    "h": 750,
+    "altPrije": "Prije: stare rolete na lođi",
+    "altPoslije": "Poslije: nove bijele rolete na lođi"
   },
   {
-    "naslov": "Zamjena puknute gurtne",
-    "lokacija": "Zagreb",
-    "opis": "Nova gurtna i automat za namatanje na balkonskim vratima.",
-    "prije": "/galerija/ilustracija-3-prije.svg",
-    "poslije": "/galerija/ilustracija-3-poslije.svg",
-    "ilustracija": true
+    "naslov": "Lođa zatvorena roletama",
+    "opis": "Otvorena lođa zatvorena novim smeđim roletama.",
+    "prije": "/galerija/rad-3-prije.webp",
+    "poslije": "/galerija/rad-3-poslije.webp",
+    "w": 1000,
+    "h": 750,
+    "altPrije": "Prije: otvorena lođa bez roleta",
+    "altPoslije": "Poslije: lođa zatvorena novim smeđim roletama"
+  },
+  {
+    "naslov": "Zamjena roleta na balkonu",
+    "opis": "Stare smeđe rolete zamijenjene novim svijetlim roletama.",
+    "prije": "/galerija/rad-4-prije.webp",
+    "poslije": "/galerija/rad-4-poslije.webp",
+    "w": 1000,
+    "h": 750,
+    "altPrije": "Prije: stare smeđe rolete na balkonu",
+    "altPoslije": "Poslije: nove svijetle rolete na balkonu"
+  },
+  {
+    "naslov": "Zatvaranje lođe roletama",
+    "opis": "Otvorena lođa zatvorena novim sivim roletama.",
+    "prije": "/galerija/rad-5-prije.webp",
+    "poslije": "/galerija/rad-5-poslije.webp",
+    "w": 1000,
+    "h": 750,
+    "altPrije": "Prije: otvorena lođa bez roleta",
+    "altPoslije": "Poslije: lođa zatvorena novim sivim roletama"
   }
 ]

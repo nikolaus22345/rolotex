@@ -14,7 +14,7 @@ Kad se spoji domena, u Vercelu dodati varijablu `SITE_URL=https://vasa-domena.hr
 ## Gdje se što mijenja
 - `src/data.js` – podaci o obrtu, telefoni, usluge (tekstovi), kvartovi, FAQ, Google recenzije
 - `src/galerija.json` – radovi prije/poslije
-- `src/style.css` – izgled (boje su na vrhu, `--b` plava, `--n` tamnoplava)
+- `src/style.css` – izgled (boje su na vrhu: `--b` #00AAC1 teal, `--n` #111111)
 - `build.js` – predlošci stranica
 
 ## Dodavanje rada prije/poslije
@@ -24,10 +24,16 @@ Kad se spoji domena, u Vercelu dodati varijablu `SITE_URL=https://vasa-domena.hr
        { "naslov": "Zamjena gurtne", "lokacija": "Trešnjevka, Zagreb", "opis": "…",
          "prije": "/galerija/rad1-prije.jpg", "poslije": "/galerija/rad1-poslije.jpg" }
 
-3. Obrisati zapise s `"ilustracija": true` kad stignu prave fotografije.
+3. Svi radovi se prikazuju u omjeru 4:3, pa fotografije izrezati na 4:3 (npr. 1000×750). Neobavezno: `"pozicija": "50% 30%"` pomiče izrez, a `lokacija` je neobavezna.
 
 ## Google recenzije
 U `src/data.js` upisati `googleRecenzijeUrl` i stvarne recenzije u `recenzije`. Dok je prazno, sekcija se ne prikazuje.
 
 ## Kontakt forma
 Šalje na FormSubmit (`emailForma` u `src/data.js`). Prvi poslani upit stiže kao e-mail za aktivaciju – treba ga jednom potvrditi.
+
+## Logo i ikone
+Izvorni SVG je u `src/brand/logo-original.svg`. Web verzije su u `public/` (`logo.svg`, `favicon.svg`, `apple-touch-icon.png`, `icon-512.png`, `og.png`). Tekst „ROLOTEX" u logotipu je pretvoren u krivulje, pa nema datoteke fonta.
+
+## Još radova (fotografije bez para)
+U `src/radovi-dodatno.json` dodati `{ "slika": "/galerija/ime.webp", "opis": "…", "alt": "…" }`, a sliku (omjer 4:3, npr. 1000×750) staviti u `public/galerija/`. Prikazuje se na dnu stranice Galerija.

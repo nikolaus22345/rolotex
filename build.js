@@ -27,7 +27,7 @@ const I = {
   komarnici: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="1.5"/><path d="M9 3v18M15 3v18M4 9h16M4 15h16" stroke-width="1.2"/></svg>',
   sjenila: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 4h18M5 4v16M9 4v16M13 4v16M17 4v12"/></svg>',
 };
-const LOGO = '<svg viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="11" fill="#2663EA"/><rect x="11" y="10" width="26" height="5" rx="1.5" fill="#fff"/><rect x="13" y="18" width="22" height="3.6" rx="1" fill="#fff"/><rect x="13" y="23.4" width="22" height="3.6" rx="1" fill="#fff" opacity=".85"/><rect x="13" y="28.8" width="22" height="3.6" rx="1" fill="#fff" opacity=".7"/><rect x="13" y="34.2" width="22" height="3.6" rx="1" fill="#fff" opacity=".5"/></svg>';
+const LOGO = '<img src="/logo.svg" alt="Rolotex" width="149" height="72" decoding="async">';
 
 /* ---------- pomoćne ---------- */
 const telHref = (g) => `tel:${g.telIntl}`;
@@ -62,21 +62,24 @@ function forma(g, usluga) {
 
 function kontaktSekcija(g, usluga) {
   const red = (x) => `<p style="margin:0 0 14px"><b style="color:#fff">${x.ime}</b><br><a href="${telHref(x)}" style="color:#fff;font-size:1.35rem;font-weight:800">${x.tel}</a><br><span style="font-size:.92rem">Izlazak: ${x.izlazak}.</span></p>`;
-  return `<section class="s dark" id="kontakt"><div class="c split" style="grid-template-columns:1fr 1fr"><div>
-<span class="k" style="color:#8fb2ff">Kontakt</span><h2>Zatražite ponudu${g ? ' ' + g.u : ''}</h2>
+  return `<section class="s dark" id="kontakt"><div class="c split eq"><div>
+<span class="k">Kontakt</span><h2>Zatražite ponudu${g ? ' ' + g.u : ''}</h2>
 <p>Nazovite, pošaljite poruku na WhatsApp ili ispunite formu. Uz fotografiju rolete i kutije možemo unaprijed reći o čemu je riječ.</p>
 ${(g ? [g] : G).map(red).join('')}
 <p><a href="mailto:${firma.email}" style="color:#fff">${firma.email}</a><br><span style="font-size:.92rem">Nedjeljom i blagdanom ne radimo. Vikendom po potrebi i dogovoru.</span></p>
 <div class="btns">${waBtn(g)}</div></div><div>${forma(g, usluga)}</div></div></section>`;
 }
 
-const karta = (g) => `<iframe class="map" loading="lazy" title="Karta – ${g.ime}" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=${encodeURIComponent(g.karta + ', Hrvatska')}&z=11&output=embed"></iframe>`;
 
-function baItem(x, i) {
-  return `<div><div class="ba"><img src="${x.poslije}" alt="Poslije: ${esc(x.naslov)}" loading="lazy" decoding="async" width="800" height="600"><img class="a" src="${x.prije}" alt="Prije: ${esc(x.naslov)}" loading="lazy" decoding="async" width="800" height="600"><span class="l1">Prije</span><span class="l2">Poslije</span><input type="range" min="0" max="100" value="50" aria-label="Usporedba prije i poslije – ${esc(x.naslov)}" oninput="this.parentNode.style.setProperty('--p',this.value+'%')"></div>
-<div class="bat"><h3>${esc(x.naslov)}${x.ilustracija ? '<em>ilustracija</em>' : ''}</h3><p>${esc(x.lokacija)} · ${esc(x.opis)}</p></div></div>`;
+function baItem(x) {
+  const w = x.w || 1000, h = x.h || 750, pos = x.pozicija ? ` style="object-position:${esc(x.pozicija)}"` : '';
+  return `<div><div class="ba"><img src="${x.poslije}" alt="${esc(x.altPoslije || 'Poslije: ' + x.naslov)}" loading="lazy" decoding="async" width="${w}" height="${h}"${pos}><img class="a" src="${x.prije}" alt="${esc(x.altPrije || 'Prije: ' + x.naslov)}" loading="lazy" decoding="async" width="${w}" height="${h}"${pos}><span class="l1">Prije</span><span class="l2">Poslije</span><input type="range" min="0" max="100" value="50" aria-label="Usporedba prije i poslije – ${esc(x.naslov)}" oninput="this.parentNode.style.setProperty('--p',this.value+'%')"></div>
+<div class="bat"><h3>${esc(x.naslov)}${x.ilustracija ? '<em>ilustracija</em>' : ''}</h3><p>${[x.lokacija, x.opis].filter(Boolean).map(esc).join(' · ')}</p></div></div>`;
 }
 const galerijaSekcija = (n) => `<section class="s"><div class="c"><span class="k">Radovi</span><h2>Prije i poslije</h2><p class="lead">Povucite klizač lijevo-desno i usporedite stanje prije i poslije našeg dolaska.</p><div class="g g3" style="margin-top:26px">${galerija.slice(0, n || 99).map(baItem).join('')}</div>${n ? '<p style="margin-top:22px"><a class="btn bw" href="/galerija/">Svi radovi</a></p>' : ''}</div></section>`;
+
+const dodatno = require('./src/radovi-dodatno.json');
+const dodatnoSekcija = () => dodatno.length ? `<section class="s alt"><div class="c"><span class="k">Još radova</span><h2>Još naših radova</h2><div class="g g3" style="margin-top:26px">${dodatno.map((x) => `<figure class="ph"><img src="${x.slika}" alt="${esc(x.alt)}" loading="lazy" decoding="async" width="1000" height="750"><figcaption>${esc(x.opis)}</figcaption></figure>`).join('')}</div></div></section>` : '';
 
 function recenzije() {
   if (!firma.recenzije.length && !firma.googleRecenzijeUrl) return '';
@@ -84,7 +87,7 @@ function recenzije() {
   return `<section class="s alt"><div class="c"><span class="k">Google recenzije</span><h2>Što kažu kupci</h2><div class="g g3">${kart}</div>${firma.googleRecenzijeUrl ? `<p style="margin-top:22px"><a class="btn bw" href="${firma.googleRecenzijeUrl}" rel="noopener">Ostavite recenziju na Googleu</a></p>` : ''}</div></section>`;
 }
 
-const HERO_ART = `<div class="art"><svg viewBox="0 0 360 380" role="img" aria-label="Ilustracija prozora s roletom"><rect x="30" y="20" width="300" height="340" rx="14" fill="#fff" opacity=".06"/><rect x="60" y="48" width="240" height="34" rx="6" fill="#2663EA"/><rect x="66" y="82" width="228" height="250" fill="#0e2140" stroke="#3b5d99" stroke-width="3"/><path d="M180 82v250M66 240h228" stroke="#3b5d99" stroke-width="3"/>${Array.from({ length: 9 }, (_, i) => `<rect x="66" y="${84 + i * 17}" width="228" height="14" rx="2" fill="#dfe9ff" opacity="${1 - i * 0.045}"/>`).join('')}<rect x="66" y="237" width="228" height="8" rx="2" fill="#8fb2ff"/><rect x="312" y="90" width="7" height="170" rx="3" fill="#8fb2ff"/><rect x="306" y="258" width="19" height="46" rx="5" fill="#2663EA"/></svg></div>`;
+const HERO_ART = `<div class="art"><svg viewBox="0 0 360 380" role="img" aria-label="Ilustracija prozora s roletom"><rect x="30" y="20" width="300" height="340" rx="14" fill="#fff" opacity=".05"/><rect x="60" y="48" width="240" height="34" rx="6" fill="#00AAC1"/><rect x="66" y="82" width="228" height="250" fill="#0b1f22" stroke="#1d6772" stroke-width="3"/><path d="M180 82v250M66 240h228" stroke="#1d6772" stroke-width="3"/>${Array.from({ length: 9 }, (_, i) => `<rect x="66" y="${84 + i * 17}" width="228" height="14" rx="2" fill="#e4f6f9" opacity="${1 - i * 0.045}"/>`).join('')}<rect x="66" y="237" width="228" height="8" rx="2" fill="#00AAC1"/><rect x="312" y="90" width="7" height="170" rx="3" fill="#66d3e1"/><rect x="306" y="258" width="19" height="46" rx="5" fill="#00AAC1"/></svg></div>`;
 
 /* ---------- layout ---------- */
 function nav() {
@@ -99,6 +102,7 @@ function footer(g) {
 <div class="ftc"><div><h2>Roleta ne radi kako treba?</h2><p>Servis i ugradnja roleta, komarnika, žaluzina i zavjesa u Zagrebu i Karlovcu. Javite se, odgovaramo brzo.</p></div>
 <div class="btns"><a class="btn bp" href="#upit">Ispuni formu</a>${(g ? [g] : G).map((x) => `<a class="btn bo" href="${telHref(x)}">${I.tel}${g ? 'Nazovite' : x.ime}</a>`).join('')}${g ? `<a class="btn bg" href="${waHref(g)}" rel="noopener">${I.wa}WhatsApp</a>` : ''}</div></div>
 <div class="ftg">
+<div class="fb"><img src="/logo.svg" alt="${firma.naziv}" width="173" height="84" loading="lazy" decoding="async"><p>Servis i ugradnja roleta, komarnika, žaluzina i zavjesa u Zagrebu i Karlovcu.</p></div>
 <div><h3>Usluge</h3><ul>${top.map((u) => L(`/usluge/${u.slug}/`, u.ime)).join('')}${L('/usluge/', 'Sve usluge')}</ul></div>
 <div><h3>Lokacije</h3><ul>${L('/zagreb/', 'Rolete Zagreb')}${L('/karlovac/', 'Rolete Karlovac')}${['tresnjevka', 'dubrava', 'siget', 'sesvete', 'dugo-selo'].map((s) => { const l = lokacije.find((x) => x.slug === s); return L(`/zagreb/${s}/`, l.ime); }).join('')}${L('/lokacije/', 'Sve lokacije')}</ul></div>
 <div><h3>Informacije</h3><ul>${L('/galerija/', 'Radovi prije i poslije')}${L('/cijene/', 'Cijene')}${L('/cesta-pitanja/', 'Česta pitanja')}${L('/o-nama/', 'O nama')}${L('/impressum/', 'Podaci o obrtu')}${L('/privatnost/', 'Pravila privatnosti')}</ul></div>
@@ -113,16 +117,24 @@ function fab(g) {
   return `<details class="fab"><summary aria-label="WhatsApp">${I.wa}</summary><div>${G.map((x) => `<a href="${waHref(x)}" rel="noopener">WhatsApp ${x.ime}<small>${x.tel}</small></a>`).join('')}</div></details>`;
 }
 
-const JS = `(function(){var b=document.getElementById('mb'),n=document.getElementById('nav');b&&b.addEventListener('click',function(){var o=n.classList.toggle('open');b.setAttribute('aria-expanded',o)});
+const JS = `(function(){try{history.scrollRestoration='manual'}catch(e){}if(!location.hash)window.scrollTo({top:0,left:0,behavior:'instant'});var b=document.getElementById('mb'),n=document.getElementById('nav');b&&b.addEventListener('click',function(){var o=n.classList.toggle('open');b.setAttribute('aria-expanded',o)});
 document.addEventListener('click',function(e){document.querySelectorAll('details.dd[open],details.fab[open]').forEach(function(d){if(!d.contains(e.target))d.removeAttribute('open')})});
 var f=document.getElementById('upit');if(f&&window.fetch){f.addEventListener('submit',function(e){e.preventDefault();var m=document.getElementById('upit-msg'),s=f.querySelector('button');if(f._honey.value)return;s.disabled=true;s.textContent='Šaljem…';
 var d={};new FormData(f).forEach(function(v,k){d[k]=v});d.Stranica=location.href;
 fetch(f.action.replace('formsubmit.co/','formsubmit.co/ajax/'),{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify(d)}).then(function(r){if(!r.ok)throw 0;return r.json()}).then(function(){f.reset();m.innerHTML='<div class="ok">Hvala! Upit je poslan, javit ćemo Vam se uskoro.</div>'}).catch(function(){m.innerHTML='<div class="err">Slanje nije uspjelo. Molimo nazovite nas ili pošaljite poruku na WhatsApp.</div>'}).then(function(){s.disabled=false;s.textContent='Pošalji upit'})})}})();`;
 
+const fit = (...o) => o.find((x) => x.length <= 60) || o[o.length - 1];
+const cutDesc = (d) => {
+  if (d.length <= 158) return d;
+  const sent = d.split(/(?<=\.)\s+/); let r = '';
+  for (const x of sent) { if ((r + ' ' + x).trim().length > 158) break; r = (r + ' ' + x).trim(); }
+  return r.length >= 90 ? r : d.slice(0, 157).replace(/\s+\S*$/, '') + '.';
+};
 function page({ url, title, desc, body, g, ld = [], crumbs = [], noindex }) {
+  title = title.toUpperCase(); desc = cutDesc(desc);
   const biz = {
     '@type': 'HomeAndConstructionBusiness', '@id': SITE + '/#firma', name: firma.naziv, url: SITE + '/',
-    logo: SITE + '/logo.svg', image: SITE + '/logo.svg', email: firma.email,
+    logo: SITE + '/icon-512.png', image: SITE + '/og.png', email: firma.email,
     telephone: (g || gradovi.zagreb).telIntl,
     address: { '@type': 'PostalAddress', addressLocality: 'Zagreb', postalCode: '10000', addressCountry: 'HR' },
     areaServed: G.map((x) => ({ '@type': 'City', name: x.ime })),
@@ -134,11 +146,11 @@ function page({ url, title, desc, body, g, ld = [], crumbs = [], noindex }) {
   const html = `<!doctype html><html lang="hr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>${esc(title)}</title><meta name="description" content="${esc(desc)}">
 <link rel="canonical" href="${SITE}${url}">${noindex ? '<meta name="robots" content="noindex">' : ''}
-<meta property="og:type" content="website"><meta property="og:locale" content="hr_HR"><meta property="og:site_name" content="${firma.naziv}"><meta property="og:title" content="${esc(title)}"><meta property="og:description" content="${esc(desc)}"><meta property="og:url" content="${SITE}${url}">
-<meta name="theme-color" content="#0B1726"><link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="/favicon.svg">
-<style>${css}.tel .mo{display:none}@media(max-width:960px){.tel{margin-left:auto}.mb{margin-left:0}.tel .mo{display:inline;opacity:1}}</style>
+<meta property="og:type" content="website"><meta property="og:locale" content="hr_HR"><meta property="og:site_name" content="${firma.naziv}"><meta property="og:title" content="${esc(title)}"><meta property="og:description" content="${esc(desc)}"><meta property="og:url" content="${SITE}${url}"><meta property="og:image" content="${SITE}/og.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#111111"><link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<style>${css}.tel .mo{display:none}@media(max-width:1100px){.tel{margin-left:auto}.mb{margin-left:0}.tel .mo{display:inline;opacity:1}}</style>
 <script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@graph': graph })}</script></head><body>
-<header class="hd"><div class="c"><a class="logo" href="/" aria-label="${firma.naziv} – početna">${LOGO}<span>${firma.naziv}<small>Rolete · Komarnici</small></span></a>${nav()}<div class="tel">${tel}</div><button class="mb" id="mb" aria-label="Izbornik" aria-controls="nav" aria-expanded="false"><span></span><span></span><span></span></button></div></header>
+<header class="hd"><div class="c"><a class="logo" href="/" aria-label="${firma.naziv} – početna">${LOGO}</a>${nav()}<div class="tel">${tel}</div><button class="mb" id="mb" aria-label="Izbornik" aria-controls="nav" aria-expanded="false"><span></span><span></span><span></span></button></div></header>
 <main>${body}</main>${footer(g)}${fab(g)}<script>${JS}</script></body></html>`;
   pages.push({ url, html, noindex });
 }
@@ -173,20 +185,20 @@ const postupak = () => `<section class="s alt"><div class="c"><span class="k">Ka
 
 // Početna
 page({
-  url: '/', title: 'Servis roleta Zagreb i Karlovac – popravak, ugradnja, komarnici | Rolotex',
+  url: '/', title: 'Servis roleta Zagreb i Karlovac – popravak | Rolotex',
   desc: 'Servis i popravak roleta u Zagrebu i Karlovcu: zamjena gurtne od 30 €, automati, lamele, motori. Ugradnja novih roleta i komarnika. Pošaljite upit ili nazovite.',
   ld: [faqLd(faqOpci.slice(0, 6))],
-  body: hero({ k: 'Servis i ugradnja roleta · Zagreb i Karlovac', h1: 'Servis roleta Zagreb i Karlovac', p: 'Popravljamo rolete koje zapinju, ne dižu se ili su pale, mijenjamo gurtne i automate te ugrađujemo nove rolete, komarnike, žaluzine i zavjese. Stanovi i obiteljske kuće.', bullets: ['Zagreb: izlazak najčešće unutar 24 do 48 sati', 'Karlovac: po dogovoru, najčešće četvrtkom ili petkom', 'Zamjena gurtne 30 – 40 €, ostalo na upit'] })
+  body: hero({ k: 'Servis i ugradnja roleta · Zagreb i Karlovac', h1: 'Servis roleta Zagreb i Karlovac', p: 'Servis roleta, zamjena gurtni i automata, nove rolete, komarnici, žaluzine i zavjese.', bullets: ['Zagreb: izlazak najčešće unutar 24 do 48 sati', 'Karlovac: po dogovoru, najčešće četvrtkom ili petkom', 'Zamjena gurtne 30 – 40 €, ostalo na upit'] })
     + `<section class="s"><div class="c"><span class="k">Odaberite grad</span><h2>Rolete Zagreb i rolete Karlovac</h2><div class="g g2" style="margin-top:22px">${G.map((x) => `<div class="city"><h3>${x.ime}</h3><p>${x.podrucje[0].toUpperCase() + x.podrucje.slice(1)}.<br>Izlazak: ${x.izlazak}.</p><div class="btns"><a class="btn bp" href="/${x.slug}/">Rolete ${x.ime}</a><a class="btn bo" href="${telHref(x)}">${I.tel}${x.tel}</a></div></div>`).join('')}</div></div></section>`
     + `<section class="s alt"><div class="c"><span class="k">Usluge</span><h2>Najtraženije usluge</h2><p class="lead">Servis roleta je naš glavni posao. Uz to ugrađujemo nove rolete i komarnike te zatvaramo balkone i lođe roletama.</p><div style="margin-top:26px">${uslugeKartice(null, usluge.filter((u) => u.top))}</div><p style="margin-top:22px"><a class="btn bw" href="/usluge/">Sve usluge (${usluge.length})</a></p></div></section>`
-    + galerijaSekcija(3) + prednosti() + postupak() + recenzije()
-    + `<section class="s"><div class="c"><span class="k">Područje rada</span><h2>Kvartovi i mjesta koja pokrivamo</h2>${G.map((x) => `<h3 style="margin-top:22px"><a href="/${x.slug}/">${x.ime}</a></h3>${lokTags(lokacije.filter((l) => l.grad === x.slug).slice(0, x.slug === 'zagreb' ? 24 : 12))}`).join('')}<p style="margin-top:22px"><a class="btn bw" href="/lokacije/">Sve lokacije</a></p><div class="g g2" style="margin-top:28px">${G.map(karta).join('')}</div></div></section>`
+    + galerijaSekcija(3) + postupak() + recenzije()
+    + `<section class="s"><div class="c"><span class="k">Područje rada</span><h2>Kvartovi i mjesta koja pokrivamo</h2>${G.map((x) => `<h3 style="margin-top:22px"><a href="/${x.slug}/">${x.ime}</a></h3>${lokTags(lokacije.filter((l) => l.grad === x.slug).slice(0, x.slug === 'zagreb' ? 24 : 12))}`).join('')}<p style="margin-top:22px"><a class="btn bw" href="/lokacije/">Sve lokacije</a></p></div></section>`
     + faqBlock(faqOpci.slice(0, 6)) + kontaktSekcija(),
 });
 
 // Usluge – pregled
 page({
-  url: '/usluge/', title: 'Usluge – servis i ugradnja roleta, komarnici, žaluzine | Rolotex',
+  url: '/usluge/', title: 'Usluge – rolete, komarnici, žaluzine | Rolotex',
   desc: 'Sve usluge Rolotexa u Zagrebu i Karlovcu: servis i popravak roleta, nove PVC i aluminijske rolete, komarnici, venecijaneri, trakaste, rolo i zebra zavjese.',
   crumbs: [['Usluge', '/usluge/']],
   body: hero({ k: 'Usluge', h1: 'Usluge: rolete, komarnici, žaluzine i zavjese', p: 'Servis i montaža roleta, rolo platna, trakastih zavjesa i žaluzina, ugradnja komarnika i venecijanera te zatvaranje lođa i balkona roletama.', crumbs: [['Usluge', '/usluge/']], art: false })
@@ -204,8 +216,8 @@ function uslugaPage(u, g) {
   const loks = g ? lokacije.filter((l) => l.grad === g.slug) : [];
   page({
     url, g, crumbs,
-    title: g ? `${u.ime} ${g.ime} – ${firma.naziv} | ${g.tel}` : `${u.ime} – Zagreb i Karlovac | ${firma.naziv}`,
-    desc: `${u.ime}${g ? ' ' + g.u : ' u Zagrebu i Karlovcu'}. ${u.kratko} ${g ? 'Nazovite ' + g.tel + ' ili pošaljite upit.' : 'Pošaljite upit ili nazovite.'}`.slice(0, 165),
+    title: g ? fit(`${u.ime} ${g.ime} – ${firma.naziv} | ${g.tel}`, `${u.ime} ${g.ime} | ${firma.naziv}`, `${u.ime} ${g.ime}`) : fit(`${u.ime} – Zagreb i Karlovac | ${firma.naziv}`, `${u.ime} | ${firma.naziv}`),
+    desc: `${u.ime}${g ? ' ' + g.u : ' u Zagrebu i Karlovcu'}. ${u.kratko} ${g ? 'Nazovite ' + g.tel + ' ili pošaljite upit.' : 'Pošaljite upit ili nazovite.'}`,
     ld: [faqLd(faq), { '@type': 'Service', name: h1, serviceType: u.ime, provider: { '@id': SITE + '/#firma' }, areaServed: (g ? [g] : G).map((x) => ({ '@type': 'City', name: x.ime })), description: u.kratko }],
     body: hero({ k: `${kategorije[u.kat]}${g ? ' · ' + g.ime : ''}`, h1, p: u.kratko, g, crumbs })
       + `<section class="s"><div class="c split"><div><h2>${u.ime}${g ? ' ' + g.u : ''}: što radimo</h2>${u.uvod.map((p) => `<p>${fill(p, g)}</p>`).join('')}
@@ -225,12 +237,12 @@ G.forEach((g) => {
   const faq = [[`Koliko brzo dolazite ${g.u}?`, `Izlazak ${g.u}: ${g.izlazak}.`], faqOpci[0], [`Koje dijelove ${g.gen} pokrivate?`, `${g.podrucje[0].toUpperCase() + g.podrucje.slice(1)}.`], faqOpci[2], faqOpci[3], faqOpci[6]];
   page({
     url, g, crumbs: [[g.ime, url]],
-    title: `Rolete ${g.ime} – servis, popravak i ugradnja roleta | ${firma.naziv} ${g.tel}`,
-    desc: `Servis i popravak roleta ${g.u}, zamjena gurtne, nove rolete i komarnici. Izlazak ${g.izlazak}. Nazovite ${g.tel}.`.slice(0, 165),
+    title: `Rolete ${g.ime} – servis i ugradnja | ${firma.naziv}`,
+    desc: `Servis i popravak roleta ${g.u}, zamjena gurtne, nove rolete i komarnici. Izlazak ${g.izlazak}. Nazovite ${g.tel}.`,
     ld: [faqLd(faq)],
     body: hero({ k: `Rolete · ${g.ime}`, h1: `Servis i popravak roleta ${g.ime}`, p: `Popravak i ugradnja roleta, komarnika, žaluzina i zavjesa ${g.u}. Radimo u stanovima i obiteljskim kućama, na roletama svih proizvođača.`, g, crumbs: [[g.ime, url]] })
       + `<section class="s"><div class="c"><span class="k">Usluge ${g.u}</span><h2>Što radimo ${g.u}</h2><p class="lead">Pokrivamo: ${g.podrucje}. Izlazak na teren: ${g.izlazak}.</p>${Object.entries(kategorije).map(([k, ime]) => `<h3 style="margin:28px 0 14px">${ime}</h3>${uslugeKartice(g, usluge.filter((u) => u.kat === k))}`).join('')}</div></section>`
-      + `<section class="s alt"><div class="c"><span class="k">Lokalno</span><h2>${g.slug === 'zagreb' ? 'Kvartovi i mjesta' : 'Gradske četvrti'} – ${g.ime}</h2><p class="lead">Odaberite svoj kvart za detalje o servisu roleta i komarnicima u Vašem dijelu grada.</p>${poSkupinama(g)}<div style="margin-top:28px">${karta(g)}</div></div></section>`
+      + `<section class="s alt"><div class="c"><span class="k">Lokalno</span><h2>${g.slug === 'zagreb' ? 'Kvartovi i mjesta' : 'Gradske četvrti'} – ${g.ime}</h2><p class="lead">Odaberite svoj kvart za detalje o servisu roleta i komarnicima u Vašem dijelu grada.</p>${poSkupinama(g)}</div></section>`
       + galerijaSekcija(3) + postupak() + recenzije() + faqBlock(faq, `Rolete ${g.ime}: česta pitanja`) + kontaktSekcija(g),
   });
 });
@@ -273,8 +285,8 @@ lokacije.forEach((l) => {
   const top = ['servis-roleta', 'zamjena-gurtne', 'zamjena-automata-gurtne', 'popravak-zaglavljene-rolete', 'zamjena-lamela', 'popravak-motora-rolete', 'zamjena-starih-roleta', 'zatvaranje-balkona-roletama', 'komarnici'].map((s) => U[s]);
   page({
     url: base, g, crumbs: [[g.ime, `/${g.slug}/`], [l.ime, base]],
-    title: `Servis roleta ${mjesto} – popravak, zamjena gurtne | ${firma.naziv}`,
-    desc: `Servis i popravak roleta ${l.lok}: zamjena gurtne 30 – 40 €, automati, lamele, zaglavljene rolete, komarnici. Nazovite ${g.tel}.`.slice(0, 165),
+    title: fit(`Servis roleta ${mjesto} – popravak | ${firma.naziv}`, `Servis roleta ${mjesto} | ${firma.naziv}`),
+    desc: `Servis i popravak roleta ${l.lok}: zamjena gurtne 30 – 40 €, automati, lamele, zaglavljene rolete, komarnici. Nazovite ${g.tel}.`,
     ld: [faqLd(faq1)],
     body: hero({ k: `Servis roleta · ${mjesto}`, h1: `Servis roleta ${l.ime}`, p: UVOD[hash(l.slug) % 3](l, g), g, crumbs: [[g.ime, `/${g.slug}/`], [l.ime, base]], bullets: bul })
       + `<section class="s"><div class="c split"><div><h2>Popravak roleta ${l.lok}</h2><p>${tipovi[l.tip]}</p>${nap}<p>Na teren ${l.lok} izlazimo ${izl}. Kvar pokušavamo riješiti u jednom dolasku, pa je korisno da uz upit pošaljete fotografiju rolete i kutije.</p>
@@ -286,8 +298,8 @@ lokacije.forEach((l) => {
   const faq2 = [...U.komarnici.faq, U['popravak-komarnika'].faq[0], [`Koliko brzo dolazite na izmjeru ${l.lok}?`, `Izlazak ${l.lok}: ${izl}.`]];
   page({
     url: base + 'komarnici/', g, crumbs: [[g.ime, `/${g.slug}/`], [l.ime, base], ['Komarnici', base + 'komarnici/']],
-    title: `Komarnici ${mjesto} – ugradnja po mjeri | ${firma.naziv}`,
-    desc: `Komarnici ${l.lok} po mjeri: fiksni, rolo, plise i komarnici za vrata. Izmjera i montaža. Nazovite ${g.tel} ili pošaljite upit.`.slice(0, 165),
+    title: fit(`Komarnici ${mjesto} – po mjeri | ${firma.naziv}`, `Komarnici ${mjesto} | ${firma.naziv}`),
+    desc: `Komarnici ${l.lok} po mjeri: fiksni, rolo, plise i komarnici za vrata. Izmjera i montaža. Nazovite ${g.tel} ili pošaljite upit.`,
     ld: [faqLd(faq2)],
     body: hero({ k: `Komarnici · ${mjesto}`, h1: `Komarnici ${l.ime}`, p: `Ugradnja komarnika po mjeri ${l.lok}: fiksni, rolo i plise komarnici za prozore te zaokretni i klizni komarnici za balkonska vrata.`, g, crumbs: [[g.ime, `/${g.slug}/`], [l.ime, base], ['Komarnici', base + 'komarnici/']], bullets: [`Izmjera ${l.lok}: ${izl}`, 'Izrada po mjeri Vašeg prozora ili vrata', 'Fiksni, rolo, plise, zaokretni i klizni'] })
       + `<section class="s"><div class="c split"><div><h2>Ugradnja komarnika ${l.lok}</h2><p>${KOM_TIP[l.tip]}</p>${nap}<p>Dolazimo na izmjeru, predložimo tip komarnika za svaki otvor i nakon izrade dolazimo na montažu. Komarnike je najbolje naručiti prije sezone, dok se na izradu ne čeka.</p>
@@ -300,8 +312,8 @@ lokacije.forEach((l) => {
   const faq3 = [...U['ugradnja-roleta'].faq, U['zamjena-starih-roleta'].faq[0], [`Koliko brzo dolazite na izmjeru ${l.lok}?`, `Izlazak ${l.lok}: ${izl}.`]];
   page({
     url: base + 'rolete/', g, crumbs: [[g.ime, `/${g.slug}/`], [l.ime, base], ['Rolete', base + 'rolete/']],
-    title: `Rolete ${mjesto} – ugradnja novih i zamjena starih roleta | ${firma.naziv}`,
-    desc: `Nove rolete ${l.lok}: PVC i aluminijske rolete po mjeri, zamjena starih roleta, zatvaranje balkona roletama. Nazovite ${g.tel}.`.slice(0, 165),
+    title: fit(`Rolete ${mjesto} – ugradnja i zamjena | ${firma.naziv}`, `Rolete ${mjesto} | ${firma.naziv}`),
+    desc: `Nove rolete ${l.lok}: PVC i aluminijske rolete po mjeri, zamjena starih roleta, zatvaranje balkona roletama. Nazovite ${g.tel}.`,
     ld: [faqLd(faq3)],
     body: hero({ k: `Nove rolete · ${mjesto}`, h1: `Rolete ${l.ime} – ugradnja i zamjena`, p: `Ugradnja novih PVC i aluminijskih roleta ${l.lok}, zamjena starih roleta novima i zatvaranje balkona i lođa roletama.`, g, crumbs: [[g.ime, `/${g.slug}/`], [l.ime, base], ['Rolete', base + 'rolete/']], bullets: [`Izmjera ${l.lok}: ${izl}`, 'PVC i aluminijske rolete po mjeri', 'Na gurtnu ili na motor'] })
       + `<section class="s"><div class="c split"><div><h2>Nove rolete ${l.lok}</h2><p>${ROL_TIP[l.tip]}</p>${nap}<p>Ako niste sigurni treba li Vam nova roleta ili samo popravak, pogledamo je i kažemo što se više isplati. Velik dio roleta za koje vlasnici misle da su gotove treba samo novu gurtnu, automat ili vješače.</p>
@@ -313,20 +325,20 @@ lokacije.forEach((l) => {
 
 // Sve lokacije
 page({
-  url: '/lokacije/', title: 'Lokacije – servis roleta po kvartovima Zagreba i Karlovca | Rolotex',
+  url: '/lokacije/', title: 'Servis roleta po kvartovima – Zagreb i Karlovac | Rolotex',
   desc: 'Popis svih kvartova i mjesta u kojima radimo servis i ugradnju roleta i komarnika: Zagreb, Sesvete, Dugo Selo, Sveta Nedelja i Karlovac.',
   crumbs: [['Lokacije', '/lokacije/']],
   body: hero({ k: 'Područje rada', h1: 'Lokacije: Zagreb i Karlovac', p: 'Odaberite kvart ili mjesto. Za svaku lokaciju imamo stranicu za servis roleta, nove rolete i komarnike.', crumbs: [['Lokacije', '/lokacije/']], art: false })
-    + G.map((g, i) => `<section class="s${i % 2 ? ' alt' : ''}"><div class="c"><h2><a href="/${g.slug}/">Rolete ${g.ime}</a></h2><p class="lead">${g.podrucje[0].toUpperCase() + g.podrucje.slice(1)}. Izlazak: ${g.izlazak}.</p>${poSkupinama(g)}<div style="margin-top:28px">${karta(g)}</div></div></section>`).join('')
+    + G.map((g, i) => `<section class="s${i % 2 ? ' alt' : ''}"><div class="c"><h2><a href="/${g.slug}/">Rolete ${g.ime}</a></h2><p class="lead">${g.podrucje[0].toUpperCase() + g.podrucje.slice(1)}. Izlazak: ${g.izlazak}.</p>${poSkupinama(g)}</div></section>`).join('')
     + kontaktSekcija(),
 });
 
 // Galerija
 page({
-  url: '/galerija/', title: 'Galerija radova prije i poslije – rolete i komarnici | Rolotex',
+  url: '/galerija/', title: 'Radovi prije i poslije – rolete i komarnici | Rolotex',
   desc: 'Radovi prije i poslije: popravci roleta, zamjena zastora i gurtni, ugradnja komarnika u Zagrebu i Karlovcu.',
   crumbs: [['Galerija', '/galerija/']],
-  body: hero({ k: 'Galerija', h1: 'Radovi prije i poslije', p: 'Usporedite stanje roleta prije i poslije popravka. Povucite klizač preko fotografije.', crumbs: [['Galerija', '/galerija/']], art: false }) + galerijaSekcija() + kontaktSekcija(),
+  body: hero({ k: 'Galerija', h1: 'Radovi prije i poslije', p: 'Usporedite stanje roleta prije i poslije popravka. Povucite klizač preko fotografije.', crumbs: [['Galerija', '/galerija/']], art: false }) + galerijaSekcija() + dodatnoSekcija() + kontaktSekcija(),
 });
 
 // Cijene
@@ -348,15 +360,15 @@ page({
 
 // Kontakt
 page({
-  url: '/kontakt/', title: 'Kontakt – Rolotex rolete Zagreb 095 718 2754, Karlovac 099 781 9493',
+  url: '/kontakt/', title: 'Kontakt – rolete Zagreb i Karlovac | Rolotex',
   desc: 'Kontakt Rolotex: Zagreb 095 718 2754, Karlovac 099 781 9493, rolotex1@gmail.com. Pošaljite upit preko forme ili WhatsAppa.',
   crumbs: [['Kontakt', '/kontakt/']],
-  body: hero({ k: 'Kontakt', h1: 'Kontakt i upit za ponudu', p: 'Za Zagreb i Karlovac imamo zasebne brojeve. Na oba možete nazvati ili pisati na WhatsApp.', crumbs: [['Kontakt', '/kontakt/']], art: false }) + kontaktSekcija() + `<section class="s"><div class="c"><div class="g g2">${G.map((g) => `<div><h3>${g.ime}</h3>${karta(g)}</div>`).join('')}</div></div></section>`,
+  body: hero({ k: 'Kontakt', h1: 'Kontakt i upit za ponudu', p: 'Za Zagreb i Karlovac imamo zasebne brojeve. Na oba možete nazvati ili pisati na WhatsApp.', crumbs: [['Kontakt', '/kontakt/']], art: false }) + kontaktSekcija(),
 });
 
 // O nama
 page({
-  url: '/o-nama/', title: 'O nama – Rolotex, servis i ugradnja roleta | Zagreb i Karlovac',
+  url: '/o-nama/', title: 'O nama – servis i ugradnja roleta | Rolotex',
   desc: 'Rolotex je obrt za servis i ugradnju roleta, komarnika, žaluzina i zavjesa. Radimo u Zagrebu i Karlovcu, u stanovima i obiteljskim kućama.',
   crumbs: [['O nama', '/o-nama/']],
   body: hero({ k: 'O nama', h1: 'Rolotex – roletar za Zagreb i Karlovac', p: 'Obrt za servis i montažu roleta, rolo platna, trakastih zavjesa i žaluzina te ugradnju komarnika i venecijanera.', crumbs: [['O nama', '/o-nama/']], art: false })
@@ -366,7 +378,7 @@ page({
 // Impressum
 page({
   url: '/impressum/', title: 'Podaci o obrtu (impressum) | Rolotex',
-  desc: 'Podaci o obrtu Rolotex: naziv, vlasnik, OIB, sjedište i kontakt.',
+  desc: 'Podaci o obrtu Rolotex za servis i ugradnju roleta: naziv, vlasnik, OIB, sjedište, e-mail i telefoni za Zagreb i Karlovac.',
   crumbs: [['Podaci o obrtu', '/impressum/']],
   body: hero({ k: 'Impressum', h1: 'Podaci o obrtu', p: 'Službeni podaci pružatelja usluga.', crumbs: [['Podaci o obrtu', '/impressum/']], art: false })
     + `<section class="s"><div class="c" style="max-width:760px"><table><tbody><tr><th>Naziv</th><td>${firma.naziv}</td></tr><tr><th>Pravni oblik</th><td>Paušalni obrt</td></tr><tr><th>Vlasnik</th><td>${firma.vlasnik}</td></tr><tr><th>OIB</th><td>${firma.oib}</td></tr><tr><th>Sjedište</th><td>${firma.sjediste}</td></tr><tr><th>E-mail</th><td><a href="mailto:${firma.email}">${firma.email}</a></td></tr>${G.map((g) => `<tr><th>Telefon ${g.ime}</th><td><a href="${telHref(g)}">${g.tel}</a></td></tr>`).join('')}</tbody></table></div></section>`,
@@ -375,10 +387,10 @@ page({
 // Privatnost
 page({
   url: '/privatnost/', title: 'Pravila privatnosti | Rolotex',
-  desc: 'Kako Rolotex obrađuje osobne podatke iz kontakt forme.',
+  desc: 'Pravila privatnosti Rolotexa: koje osobne podatke prikupljamo iz kontakt forme, zašto ih koristimo i kako možete zatražiti brisanje.',
   crumbs: [['Pravila privatnosti', '/privatnost/']],
   body: hero({ k: 'Privatnost', h1: 'Pravila privatnosti', p: 'Kratko i jasno o podacima koje nam pošaljete.', crumbs: [['Pravila privatnosti', '/privatnost/']], art: false })
-    + `<section class="s"><div class="c" style="max-width:760px"><h2>Voditelj obrade</h2><p>${firma.puniNaziv}, vl. ${firma.vlasnik}, ${firma.sjediste}, OIB ${firma.oib}, ${firma.email}.</p><h2>Koje podatke prikupljamo</h2><p>Podatke koje sami upišete u kontakt formu (ime, telefon, grad, kvart ili adresa, poruka) te podatke koje nam pošaljete telefonom, e-mailom ili WhatsAppom.</p><h2>Zašto</h2><p>Isključivo da odgovorimo na upit, izradimo ponudu i dogovorimo termin. Podatke ne prodajemo i ne koristimo za oglašavanje.</p><h2>Obrada upita iz forme</h2><p>Upiti iz forme prosljeđuju se na naš e-mail putem usluge FormSubmit. Karte na stranici prikazuje Google Maps.</p><h2>Čuvanje i Vaša prava</h2><p>Podatke čuvamo koliko je potrebno za obradu upita i izvršenje posla te koliko nalažu propisi. Možete zatražiti uvid, ispravak ili brisanje svojih podataka na ${firma.email}.</p></div></section>`,
+    + `<section class="s"><div class="c" style="max-width:760px"><h2>Voditelj obrade</h2><p>${firma.puniNaziv}, vl. ${firma.vlasnik}, ${firma.sjediste}, OIB ${firma.oib}, ${firma.email}.</p><h2>Koje podatke prikupljamo</h2><p>Podatke koje sami upišete u kontakt formu (ime, telefon, grad, kvart ili adresa, poruka) te podatke koje nam pošaljete telefonom, e-mailom ili WhatsAppom.</p><h2>Zašto</h2><p>Isključivo da odgovorimo na upit, izradimo ponudu i dogovorimo termin. Podatke ne prodajemo i ne koristimo za oglašavanje.</p><h2>Obrada upita iz forme</h2><p>Upiti iz forme prosljeđuju se na naš e-mail putem usluge FormSubmit.</p><h2>Čuvanje i Vaša prava</h2><p>Podatke čuvamo koliko je potrebno za obradu upita i izvršenje posla te koliko nalažu propisi. Možete zatražiti uvid, ispravak ili brisanje svojih podataka na ${firma.email}.</p></div></section>`,
 });
 
 // 404
@@ -392,24 +404,7 @@ fs.rmSync(OUT, { recursive: true, force: true });
 const write = (rel, data) => { const f = path.join(OUT, rel); fs.mkdirSync(path.dirname(f), { recursive: true }); fs.writeFileSync(f, data); };
 pages.forEach((p) => write(p.url.endsWith('/') ? p.url + 'index.html' : p.url, p.html));
 
-const svgWrap = (inner, w = 48, h = 48) => `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${w} ${h}">${inner}</svg>`;
-write('favicon.svg', LOGO.replace('<svg ', '<svg xmlns="http://www.w3.org/2000/svg" ').replace(' aria-hidden="true"', ''));
-write('logo.svg', svgWrap(`${LOGO.replace(/<\/?svg[^>]*>/g, '')}<text x="60" y="30" font-family="system-ui,Segoe UI,Arial,sans-serif" font-size="26" font-weight="800" fill="#0B1726" letter-spacing="-.5">Rolotex</text><text x="61" y="43" font-family="system-ui,Segoe UI,Arial,sans-serif" font-size="7.5" font-weight="700" fill="#5b6779" letter-spacing="1.4">ROLETE · KOMARNICI</text>`, 190, 48));
 
-// Ilustracije za galeriju dok ne stignu prave fotografije (src/galerija.json)
-function ilustracija(n, prije) {
-  const lam = Array.from({ length: 16 }, (_, i) => {
-    const y = 130 + i * 24;
-    if (!prije) return `<rect x="200" y="${y}" width="400" height="21" rx="3" fill="#eef3fb" stroke="#c9d5e6"/>`;
-    const rot = n === 2 ? 4 + i * 0.25 : (n === 1 && i % 5 === 2 ? -3 : 0);
-    const boja = n === 1 ? (i % 3 ? '#d8cfae' : '#c9bd93') : '#dcdcd4';
-    const rupa = n === 1 && i % 4 === 1 ? `<path d="M${300 + i * 9} ${y + 3}l22 6-14 9z" fill="#5a6577"/>` : '';
-    return `<g transform="rotate(${rot} 400 ${y})"><rect x="200" y="${y}" width="400" height="21" rx="3" fill="${boja}" stroke="#a9a48d"/>${rupa}</g>`;
-  }).slice(0, prije && n === 3 ? 6 : 16).join('');
-  const traka = n === 3 ? (prije ? '<path d="M640 150v150l-10 26 14 30-9 40" fill="none" stroke="#8a7a5c" stroke-width="12" stroke-dasharray="26 5"/>' : '<rect x="634" y="150" width="12" height="300" fill="#4a5568"/><rect x="624" y="440" width="32" height="70" rx="6" fill="#fff" stroke="#c9d5e6" stroke-width="2"/>') : '';
-  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600"><rect width="800" height="600" fill="${prije ? '#cfd3d8' : '#dfe8f5'}"/><rect x="180" y="80" width="440" height="50" rx="6" fill="${prije ? '#b9b6a8' : '#fff'}" stroke="#9aa5b5" stroke-width="2"/><rect x="190" y="128" width="420" height="400" fill="#7f93ad" stroke="${prije ? '#a9a48d' : '#fff'}" stroke-width="12"/><path d="M400 128v400" stroke="${prije ? '#a9a48d' : '#fff'}" stroke-width="10"/>${lam}${traka}<text x="400" y="575" text-anchor="middle" font-family="system-ui,Arial,sans-serif" font-size="20" fill="#5b6779">Ilustracija – ${prije ? 'prije' : 'poslije'}</text></svg>`;
-}
-[1, 2, 3].forEach((n) => { write(`galerija/ilustracija-${n}-prije.svg`, ilustracija(n, true)); write(`galerija/ilustracija-${n}-poslije.svg`, ilustracija(n, false)); });
 // Prave fotografije: stavite ih u ./public/galerija/ – kopiraju se u dist
 const PUB = path.join(__dirname, 'public');
 if (fs.existsSync(PUB)) fs.cpSync(PUB, OUT, { recursive: true });

@@ -256,7 +256,7 @@ const UVOD = [
 ];
 const KOM_TIP = {
   stari: 'Na starijim, visokim prozorima komarnici se rade strogo po mjeri jer nijedan otvor nije isti. Najčešće ugrađujemo fiksne i rolo komarnike prilagođene dubini okvira.',
-  neboderi: 'U višekatnicama se najviše traže rolo komarnici za prozore i plise (harmo), koji se montiraju uz postojeće rolete.',
+  neboderi: 'U višekatnicama se najviše traže rolo komarnici za prozore i plise (harmo) ili zaokretni komarnici za vrata lođe, koji se montiraju uz postojeće rolete.',
   novo: 'Na novijoj PVC stolariji komarnici se montiraju brzo i bez vidljivih prepravaka. Popularni su plise (harmo) komarnici za balkonske stijene i rolo komarnici za prozore.',
   kuce: 'U obiteljskim kućama komarnici se obično naručuju za cijelu kuću odjednom: fiksni za prozore koji se rijetko otvaraju, a zaokretni ili plise (harmo) za terasna vrata.',
   mix: 'Ovisno o stolariji ugrađujemo fiksne, rolo i plise (harmo) komarnike za prozore te zaokretne i klizne komarnike za balkonska vrata.',
@@ -328,7 +328,7 @@ lokacije.forEach((l) => {
   page({
     url: base + 'komarnici/', g, crumbs: [[g.ime, `/${g.slug}/`], [l.ime, base], ['Komarnici', base + 'komarnici/']],
     title: fit(`Komarnici ${mjesto} – po mjeri | ${firma.naziv}`, `Komarnici ${mjesto} | ${firma.naziv}`),
-    desc: `Komarnici ${l.lok} po mjeri: fiksni, rolo i plise (harmo) komarnici. Izmjera i montaža. Nazovite ${g.tel} ili pošaljite upit.`,
+    desc: `Komarnici ${l.lok} po mjeri: fiksni, rolo, plise (harmo) i komarnici za vrata. Izmjera i montaža. Nazovite ${g.tel} ili pošaljite upit.`,
     ld: [faqLd(faq2)],
     body: hero({ k: `Komarnici · ${mjesto}`, h1: `Komarnici ${l.ime}`, p: `Ugradnja komarnika po mjeri ${l.lok}: fiksni, rolo i plise (harmo) komarnici za prozore te zaokretni i klizni komarnici za balkonska vrata.`, g, crumbs: [[g.ime, `/${g.slug}/`], [l.ime, base], ['Komarnici', base + 'komarnici/']], bullets: [`Izmjera ${l.lok}: ${izl}`, 'Izrada po mjeri Vašeg prozora ili vrata', 'Fiksni, rolo, plise (harmo), zaokretni i klizni'] })
       + `<section class="s"><div class="c split"><div><h2>Ugradnja komarnika ${l.lok}</h2><p>${KOM_TIP[l.tip]}</p>${nap}<p>Dolazimo na izmjeru, predložimo tip komarnika za svaki otvor i nakon izrade dolazimo na montažu. Komarnike je najbolje naručiti prije sezone, dok se na izradu ne čeka.</p>

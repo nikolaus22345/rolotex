@@ -262,13 +262,12 @@ exports.usluge = [
   },
   {
     slug: 'venecijaneri', kat: 'sjenila', ime: 'Venecijaneri',
-    kratko: 'Unutarnje aluminijske žaluzine (venecijaneri) po mjeri – ugradnja i servis.',
+    kratko: 'Unutarnje aluminijske žaluzine (venecijaneri) po mjeri – ugradnja.',
     uvod: [
-      'Venecijaneri su unutarnje aluminijske žaluzine s vodoravnim lamelama kojima birate koliko svjetla ulazi. Ugradnju i servis venecijanera {u} radimo po mjeri, na krilo prozora ili u špaletu.',
+      'Venecijaneri su unutarnje aluminijske žaluzine s vodoravnim lamelama kojima birate koliko svjetla ulazi. Ugradnju venecijanera {u} radimo po mjeri, na krilo prozora ili u špaletu.',
       'Praktični su za kuhinje, kupaonice i urede jer se lako brišu i ne upijaju mirise. Na PVC prozore montiraju se bez bušenja stakla, na okvir krila.',
     ],
-    stavke: ['Venecijaneri po mjeri', 'Montaža na krilo prozora ili u špaletu', 'Izbor boja lamela', 'Servis: zamjena špage i mehanizma za zakretanje'],
-    faq: [['Popravljate li stare venecijanere?', 'Da, mijenjamo špage i mehanizam za zakretanje kad su lamele još u dobrom stanju.']],
+    stavke: ['Venecijaneri po mjeri', 'Montaža na krilo prozora ili u špaletu', 'Izbor boja lamela'],
   },
   {
     slug: 'vanjske-zaluzine', kat: 'sjenila', ime: 'Vanjske žaluzine',

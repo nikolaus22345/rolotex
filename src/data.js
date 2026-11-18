@@ -189,16 +189,6 @@ exports.usluge = [
     faq: [['Može li se na postojeću roletu ugraditi motor?', 'Ne na svaku. Ovisi o tipu osovine, mjestu u kutiji i dovodu struje. Procjenu dajemo nakon pregleda rolete.']],
   },
   {
-    slug: 'pametne-rolete', kat: 'nove', ime: 'Daljinsko i pametno upravljanje roletama',
-    kratko: 'Daljinski upravljač, grupno upravljanje i upravljanje roletama preko mobitela.',
-    uvod: [
-      'Rolete na motor mogu se upravljati daljinskim upravljačem, pojedinačno ili sve odjednom, a uz odgovarajući prijemnik i preko mobitela. Daljinsko i pametno upravljanje roletama {u} ugrađujemo na nove i na postojeće električne rolete.',
-      'Koja je oprema moguća ovisi o motoru koji je već u roleti. Prije narudžbe provjerimo motor i ožičenje da ne kupite nešto što s Vašim roletama ne radi.',
-    ],
-    stavke: ['Daljinski upravljač za jednu ili više roleta', 'Grupno upravljanje (sve rolete jednim gumbom)', 'Upravljanje preko mobitela', 'Vremensko dizanje i spuštanje'],
-    faq: [['Mogu li postojeće električne rolete dobiti daljinski?', 'Najčešće mogu, dodavanjem prijemnika ili zamjenom motora radijskim. Ovisi o postojećem motoru.']],
-  },
-  {
     slug: 'zatvaranje-balkona-roletama', kat: 'nove', ime: 'Zatvaranje balkona i lođa roletama', top: true,
     kratko: 'Balkon ili lođa zatvoreni roletama: zaštita od sunca, kiše, vjetra i pogleda.',
     uvod: [

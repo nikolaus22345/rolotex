@@ -193,7 +193,7 @@ exports.usluge = [
     kratko: 'Balkon ili lođa zatvoreni roletama: zaštita od sunca, kiše, vjetra i pogleda.',
     uvod: [
       'Zatvaranje balkona i lođa roletama {u} dobro je rješenje kad želite zaštitu od sunca, kiše, vjetra i pogleda, a da balkon i dalje možete potpuno otvoriti. Rolete podignete i lođa je otvorena kao prije.',
-      'Lođe i balkone zatvaramo isključivo roletama, bez staklenih stijena. Rolete se izrađuju po mjeri otvora, obično aluminijske zbog širine, i mogu biti na gurtnu ili na motor.',
+      'Lođe i balkone zatvaramo isključivo roletama, bez staklenih stijena i stolarije. Rolete se izrađuju po mjeri otvora, obično aluminijske zbog širine.',
     ],
     stavke: ['Izmjera balkona ili lođe', 'Aluminijske rolete po mjeri za široke otvore', 'Podjela otvora na više polja', 'Upravljanje gurtnom ili motorom', 'Mogućnost komarnika'],
     faq: [['Zatvarate li balkone i staklom?', 'Ne. Balkone i lođe zatvaramo isključivo roletama.']],

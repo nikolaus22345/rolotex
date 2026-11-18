@@ -176,7 +176,7 @@ exports.usluge = [
       'Kad su lamele izgorjele od sunca, napukle ili se više ne mogu nabaviti, popravak nema smisla. Zamjenu starih roleta novima {u} radimo tako da, gdje god je moguće, zadržimo postojeću kutiju i vodilice i mijenjamo samo zastor i mehanizam.',
       'Tako nema razbijanja ni radova oko prozora, a dobijete roletu koja radi kao nova. Ako su i kutija i vodilice dotrajale, ugrađujemo kompletnu novu roletu.',
     ],
-    stavke: ['Demontaža starog zastora', 'Novi PVC ili aluminijski zastor u postojeću kutiju', 'Nova osovina, traka i automat po potrebi', 'Kompletna nova roleta kad je kutija dotrajala', 'Stare drvene i plastične rolete'],
+    stavke: ['Demontaža starog zastora', 'Novi PVC ili aluminijski zastor u postojeću kutiju', 'Kompletna nova roleta kad je kutija dotrajala', 'Stare drvene i plastične rolete'],
     faq: [['Može li nova roleta u staru kutiju iznad prozora?', 'U većini slučajeva može. Na licu mjesta izmjerimo kutiju i vodilice i provjerimo stane li novi zastor.']],
   },
   {

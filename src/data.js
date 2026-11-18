@@ -303,24 +303,14 @@ exports.usluge = [
     faq: [['Može li se zamijeniti samo jedna traka?', 'Može. Trake, utezi i lančići mijenjaju se pojedinačno.']],
   },
   {
-    slug: 'rolo-zavjese', kat: 'sjenila', ime: 'Rolo zavjese',
-    kratko: 'Rolo zavjese (rolo platna) po mjeri: prozirne, zatamnjujuće ili potpuno zamračenje.',
+    slug: 'rolo-platna', kat: 'sjenila', ime: 'Rolo platna',
+    kratko: 'Rolo platna po mjeri: prozirne, zatamnjujuće ili potpuno zamračenje.',
     uvod: [
-      'Rolo zavjese, koje se zovu i rolo platna, namataju se na osovinu iznad prozora i upravljaju lančićem. Ugradnju i servis rolo zavjesa {u} radimo po mjeri, na krilo prozora, zid ili strop.',
+      'Rolo platna (rolo zavjese) namataju se na osovinu iznad prozora i upravljaju lančićem. Ugradnju i servis rolo platna {u} radimo po mjeri, na krilo prozora, zid ili strop.',
       'Platno birate prema prostoriji: prozirnije za dnevni boravak, zatamnjujuće za radnu sobu, a blackout za spavaću i dječju sobu.',
     ],
-    stavke: ['Rolo zavjese po mjeri', 'Prozirna, zatamnjujuća i blackout platna', 'Montaža na krilo bez bušenja gdje je moguće', 'Servis: zamjena lančića i mehanizma'],
-    faq: [['Mogu li se rolo zavjese montirati bez bušenja?', 'Na PVC prozore najčešće mogu, nosačima koji se kače na krilo. Ovisi o profilu prozora.']],
-  },
-  {
-    slug: 'zebra-zavjese', kat: 'sjenila', ime: 'Zebra zavjese',
-    kratko: 'Zebra zavjese s prozirnim i neprozirnim prugama: svjetlo birate pomakom platna.',
-    uvod: [
-      'Zebra zavjese imaju dvostruko platno s izmjeničnim prozirnim i neprozirnim prugama. Pomakom lančića pruge se poklope ili razmaknu pa bez dizanja zavjese birate koliko svjetla ulazi. Zebra zavjese {u} ugrađujemo po mjeri.',
-      'Izgledaju modernije od klasičnih rolo platna i dobro pristaju dnevnim boravcima i kuhinjama.',
-    ],
-    stavke: ['Zebra zavjese po mjeri', 'Izbor boja i gustoće platna', 'Montaža na krilo, zid ili strop', 'Upravljanje lančićem'],
-    faq: [['Zamračuju li zebra zavjese potpuno?', 'Ne potpuno. Jako zatamne prostoriju, ali za potpuni mrak bolje su rolete ili blackout rolo zavjese.']],
+    stavke: ['Rolo platna po mjeri', 'Prozirna, zatamnjujuća i blackout platna', 'Montaža na krilo bez bušenja gdje je moguće', 'Servis: zamjena lančića i mehanizma'],
+    faq: [['Mogu li se rolo platna montirati bez bušenja?', 'Na PVC prozore najčešće mogu, nosačima koji se kače na krilo. Ovisi o profilu prozora.']],
   },
 ];
 
@@ -328,14 +318,14 @@ exports.kategorije = {
   servis: 'Servis i popravak roleta',
   nove: 'Nove rolete',
   komarnici: 'Komarnici',
-  sjenila: 'Žaluzine i zavjese',
+  sjenila: 'Sjenila i zavjese',
 };
 
 // Tip gradnje -> rečenice o tipičnim kvarovima (za jedinstveniji tekst po kvartu)
 exports.tipovi = {
   stari: 'Ovdje prevladavaju starije zgrade s visokim prozorima i roletama koje su odradile desetljeća. Najčešće mijenjamo dotrajale gurtne, osovine i ležajeve, a kod starih drvenih i plastičnih roleta često je isplativije ubaciti novi zastor u postojeću kutiju.',
   neboderi: 'Naselje čine pretežno višekatnice i neboderi s roletama u nadprozornim kutijama. Tipični pozivi su puknuta gurtna, oslabljen automat za namatanje i lamele izgorjele na sunčanoj strani zgrade. Česta je i želja da se lođa zatvori roletama.',
-  novo: 'Riječ je uglavnom o novijoj gradnji s PVC stolarijom i aluminijskim roletama, često na motor. Ovdje najviše radimo podešavanje i zamjenu motora, ugradnju komarnika po mjeri te rolo i zebra zavjese.',
+  novo: 'Riječ je uglavnom o novijoj gradnji s PVC stolarijom i aluminijskim roletama, često na motor. Ovdje najviše radimo podešavanje i zamjenu motora, ugradnju komarnika po mjeri te rolo platna i zavjese.',
   kuce: 'Prevladavaju obiteljske kuće s puno prozora i balkonskih vrata. Obično se odjednom rješava više roleta: zamjena gurtni po cijeloj kući, novi zastori na južnoj strani te komarnici za prozore i terasna vrata.',
   mix: 'Kvart je mješavina starijih zgrada, novijih stambenih objekata i obiteljskih kuća, pa susrećemo sve: od starih roleta s izlizanim gurtnama do novih električnih roleta kojima treba podesiti ili zamijeniti motor.',
 };

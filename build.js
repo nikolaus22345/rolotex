@@ -91,7 +91,7 @@ const HERO_ART = `<div class="art"><svg viewBox="0 0 360 380" role="img" aria-la
 
 /* ---------- layout ---------- */
 function nav() {
-  const kol = Object.entries(kategorije).map(([k, ime]) => `<div><b>${ime}</b>${usluge.filter((u) => u.kat === k).map((u) => `<a href="/usluge/${u.slug}/">${u.ime}</a>`).join('')}</div>`).join('');
+  const kol = Object.entries(kategorije).map(([k, ime]) => `<div><b>${ime}</b>${usluge.filter((u) => u.kat === k && !['popravak-roleta', 'komarnici'].includes(u.slug)).map((u) => `<a href="/usluge/${u.slug}/">${u.ime}</a>`).join('')}</div>`).join('');
   return `<nav class="nav" id="nav" aria-label="Glavna navigacija"><details class="dd"><summary>Usluge</summary><div>${kol}</div></details><a href="/zagreb/">Zagreb</a><a href="/karlovac/">Karlovac</a><a href="/galerija/">Galerija</a><a href="/cijene/">Cijene</a><a href="/kontakt/">Kontakt</a></nav>`;
 }
 
@@ -199,7 +199,7 @@ page({
 // Usluge – pregled
 page({
   url: '/usluge/', title: 'Usluge – rolete, komarnici, žaluzine | Rolotex',
-  desc: 'Sve usluge Rolotexa u Zagrebu i Karlovcu: servis i popravak roleta, nove PVC i aluminijske rolete, komarnici, venecijaneri, trakaste, rolo i zebra zavjese.',
+  desc: 'Sve usluge Rolotexa u Zagrebu i Karlovcu: servis i popravak roleta, nove PVC i aluminijske rolete, komarnici, venecijaneri, trakaste zavjese i rolo platna.',
   crumbs: [['Usluge', '/usluge/']],
   body: hero({ k: 'Usluge', h1: 'Usluge: rolete, komarnici, žaluzine i zavjese', p: 'Servis i montaža roleta, rolo platna, trakastih zavjesa i žaluzina, ugradnja komarnika i venecijanera te zatvaranje lođa i balkona roletama.', crumbs: [['Usluge', '/usluge/']], art: false })
     + Object.entries(kategorije).map(([k, ime], i) => `<section class="s${i % 2 ? ' alt' : ''}"><div class="c"><h2>${ime}</h2><div style="margin-top:22px">${uslugeKartice(null, usluge.filter((u) => u.kat === k))}</div></div></section>`).join('')
@@ -286,7 +286,7 @@ const CJENIK = [
   ]],
   ['Sjenila i zavjese', [
     ['Venecijaneri', 'venecijaneri', '70 € / m²'],
-    ['Rolo platna', 'rolo-zavjese', '85 – 100 € / m²', 'Cijena ovisi o dizajnu i dimenzijama.'],
+    ['Rolo platna', 'rolo-platna', '85 – 100 € / m²', 'Cijena ovisi o dizajnu i dimenzijama.'],
     ['Trakaste zavjese', 'trakaste-zavjese', '80 € / m²', 'Cijena može varirati ovisno o dizajnu i dimenzijama.'],
   ]],
   ['Komarnici', [

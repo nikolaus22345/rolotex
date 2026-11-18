@@ -268,6 +268,7 @@ exports.usluge = [
       'Praktični su za kuhinje, kupaonice i urede jer se lako brišu i ne upijaju mirise. Na PVC prozore montiraju se bez bušenja stakla, na okvir krila.',
     ],
     stavke: ['Venecijaneri po mjeri', 'Montaža na krilo prozora ili u špaletu', 'Izbor boja lamela'],
+    faq: [],
   },
   {
     slug: 'vanjske-zaluzine', kat: 'sjenila', ime: 'Vanjske žaluzine',

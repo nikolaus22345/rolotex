@@ -131,7 +131,7 @@ exports.usluge = [
       'Kad električna roleta stane, zuji bez pomaka ili radi samo u jednom smjeru, kvar može biti u motoru, prekidaču ili u samom zastoru. Popravak i zamjenu motora rolete {u} radimo na cijevnim motorima koji se nalaze u osovini rolete.',
       'Prvo provjerimo dolazi li struja do motora i jesu li krajnji položaji dobro podešeni. Ako je motor pregorio, mijenjamo ga novim odgovarajuće snage i ponovno podešavamo gornji i donji krajnji položaj.',
     ],
-    stavke: ['Dijagnostika kvara električne rolete', 'Zamjena pregorjelog cijevnog motora', 'Podešavanje krajnjih položaja', 'Ponovno uparivanje daljinskog upravljača'],
+    stavke: ['Dijagnostika kvara električne rolete', 'Zamjena pregorjelog cijevnog motora', 'Podešavanje krajnjih položaja'],
     faq: [
       ['Roleta zuji, ali se ne miče. Je li motor gotov?', 'Ne mora biti. Zna biti zaglavljen zastor ili potrgan spoj osovine i motora. Na licu mjesta provjerimo što je uzrok prije nego što se išta mijenja.'],
     ],

@@ -264,12 +264,11 @@ exports.usluge = [
   },
   {
     slug: 'popravak-komarnika', kat: 'komarnici', ime: 'Popravak komarnika',
-    kratko: 'Popravak rolo komarnika: podešavanje mehanizma i opruge te vraćanje u vodilice.',
+    kratko: 'Popravak rolo i plise (harmo) komarnika i vraćanje mreže u vodilice.',
     uvod: [
-      'Kod rolo i plise (harmo) komarnika najčešće ne strada mreža nego mehanizam koji je drži napetom i vodi kroz vodilice. Popravak komarnika {u} radimo podešavanjem i zamjenom dijelova mehanizma.',
-      'Važno je znati: sama mreža na takvom komarniku ne može se zasebno zamijeniti. Popravlja se mehanizam, a ako je mreža poderana, rješenje je novi komarnik. To Vam kažemo unaprijed da ne plaćate popravak koji neće držati.',
+      'Važno je znati: sama mreža na rolo i plise (harmo) komarniku ne može se zasebno zamijeniti. Popravlja se mehanizam, a ako je mreža poderana, rješenje je novi komarnik. To Vam kažemo unaprijed da ne plaćate popravak koji neće držati.',
     ],
-    stavke: ['Popravak mehanizma na rolo i plise (harmo) komarnicima', 'Vraćanje mreže u vodilice', 'Podešavanje opruge i kočnice', 'Procjena: popravak ili novi komarnik'],
+    stavke: ['Vraćanje mreže u vodilice', 'Procjena: popravak ili novi komarnik'],
     faq: [['Koliko košta zamjena mreže na komarniku?', 'Mreža se ne može zasebno zamijeniti. Popravlja se mehanizam komarnika. Ako je mreža poderana, izrađuje se novi komarnik.']],
   },
   {

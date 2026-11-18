@@ -272,18 +272,22 @@ const CJENIK = [
   ['Popravci roleta i zamjena automata', [
     ['Zamjena gurtne (trake)', 'zamjena-gurtne', '30 – 40 €'],
     ['Ugradbeni automat za PVC stolariju', 'zamjena-automata-gurtne', '50 €'],
-    ['Zamjena automata (bez gurtne)', 'zamjena-automata-gurtne', 'ovisi o modelu'],
-    ['Zamjena automata (sa gurtnom)', 'zamjena-automata-gurtne', 'ovisi o modelu'],
+    ['Zamjena automata (bez gurtne)', 'zamjena-automata-gurtne', '30 €'],
+    ['Zamjena automata (sa gurtnom)', 'zamjena-automata-gurtne', 'od 40 €'],
     ['Popravak električne rolete', 'popravak-motora-rolete', '40 – 150 €'],
-    ['Zamjena osovine', 'zamjena-osovine-lezaja-opruge', '60 €'],
+    ['Zamjena motora na električnoj roleti', 'popravak-motora-rolete', 'na upit'],
+    ['Zamjena osovine', 'zamjena-osovine-lezaja-opruge', '60 – 80 €'],
   ]],
   ['Nove rolete', [
-    ['Ugradnja aluminijskih roleta', 'ugradnja-roleta', '180 € / m²'],
+    ['Ugradnja novih aluminijskih roleta sa svim priborom', 'ugradnja-roleta', '180 € / m²'],
+    ['Ugradnja nove PVC rolete sa svim priborom', 'ugradnja-roleta', '135 € / m²'],
+    ['Zamjena postojećih roleta za aluminijske', 'zamjena-starih-roleta', '80 – 100 € / m²'],
+    ['Zamjena postojećih roleta za PVC', 'zamjena-starih-roleta', '70 – 80 € / m²'],
   ]],
   ['Sjenila i zavjese', [
     ['Venecijaneri', 'venecijaneri', '70 € / m²'],
     ['Rolo platna', 'rolo-zavjese', '85 – 100 € / m²', 'Cijena ovisi o dizajnu i dimenzijama.'],
-    ['Trakaste zavjese', 'trakaste-zavjese', '80 € / m²'],
+    ['Trakaste zavjese', 'trakaste-zavjese', '80 € / m²', 'Cijena može varirati ovisno o dizajnu i dimenzijama.'],
   ]],
   ['Komarnici', [
     ['Fiksni komarnici', 'fiksni-komarnici', '60 € / m²'],
@@ -368,10 +372,10 @@ page({
 // Cijene
 page({
   url: '/cijene/', title: 'Cijene roleta, komarnika i zavjesa – okvirno | Rolotex',
-  desc: 'Okvirne cijene popravka i zamjene roleta, ugradnje aluminijskih roleta, komarnika i zavjesa u Zagrebu i Karlovcu. Cijene su s PDV-om, točnu određujemo na terenu.',
+  desc: 'Okvirne cijene popravka i zamjene roleta, ugradnje aluminijskih roleta, komarnika i zavjesa u Zagrebu i Karlovcu. Točnu cijenu određujemo na terenu.',
   crumbs: [['Cijene', '/cijene/']],
   body: hero({ k: 'Cijene', h1: 'Cijene roleta, komarnika i zavjesa', p: 'Istaknute cijene su okvirne i služe kao orijentir. Točna cijena ovisi o stanju rolete, dimenzijama i izvedbi te se određuje na terenu.', crumbs: [['Cijene', '/cijene/']], art: false })
-    + `<section class="s"><div class="c" style="max-width:860px">${CJENIK.map(([naslov, redovi]) => `<h2 style="font-size:1.35rem;margin:${naslov === CJENIK[0][0] ? '0' : '34px'} 0 14px">${naslov}</h2><table><thead><tr><th>Usluga</th><th>Cijena</th></tr></thead><tbody>${redovi.map(([ime, slug, cijena, nap]) => `<tr><td><a href="/usluge/${slug}/">${ime}</a>${nap ? `<br><small style="color:var(--m)">${nap}</small>` : ''}</td><td style="white-space:nowrap"><b>${cijena}</b></td></tr>`).join('')}</tbody></table>`).join('')}<p style="margin-top:22px;color:var(--m)"><b style="color:var(--n)">Sve navedene cijene su s uračunatim PDV-om.</b> Cijene su okvirne i služe kao orijentir, a variraju ovisno o stanju rolete, dimenzijama i izvedbi. Točnu cijenu određujemo na terenu, prije početka rada. Za brzu procjenu pošaljite fotografiju i približne dimenzije.</p></div></section>` + kontaktSekcija(),
+    + `<section class="s"><div class="c" style="max-width:860px">${CJENIK.map(([naslov, redovi]) => `<h2 style="font-size:1.35rem;margin:${naslov === CJENIK[0][0] ? '0' : '34px'} 0 14px">${naslov}</h2><table><thead><tr><th>Usluga</th><th>Cijena</th></tr></thead><tbody>${redovi.map(([ime, slug, cijena, nap]) => `<tr><td><a href="/usluge/${slug}/">${ime}</a>${nap ? `<br><small style="color:var(--m)">${nap}</small>` : ''}</td><td style="white-space:nowrap"><b>${cijena}</b></td></tr>`).join('')}</tbody></table>`).join('')}<p style="margin-top:22px;color:var(--m)">Cijene su okvirne i služe kao orijentir, a variraju ovisno o stanju rolete, dimenzijama i izvedbi. Točnu cijenu određujemo na terenu, prije početka rada. Za brzu procjenu pošaljite fotografiju i približne dimenzije.</p></div></section>` + kontaktSekcija(),
 });
 
 // FAQ

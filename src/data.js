@@ -83,7 +83,7 @@ exports.usluge = [
       'Automat ili namatač gurtne je kutijica pri dnu prozora u koju se traka sama uvlači. Kad mu oslabi ili pukne opruga, traka ostaje visjeti i više se ne namata. Zamjenu automata gurtne {u} radimo na nadžbuknim i podžbuknim (ugradbenim) automatima.',
       'Novi automat biramo prema širini trake i dužini koju treba primiti. U istom dolasku obično promijenimo i gurtnu jer je stara traka uglavnom jednako istrošena.',
     ],
-    stavke: ['Zamjena nadžbuknog automata', 'Zamjena podžbuknog (ugradbenog) automata', 'Automati za uske i široke gurtne', 'Zamjena maske (pokrovne pločice) automata', 'Zamjena gurtne zajedno s automatom'],
+    stavke: ['Zamjena nadžbuknog automata', 'Zamjena podžbuknog (ugradbenog) automata', 'Automati za uske gurtne', 'Zamjena gurtne zajedno s automatom'],
     faq: [
       ['Kako znam da je kriv automat, a ne traka?', 'Ako je traka cijela, a ne vraća se u kutiju nego visi, kriva je opruga u automatu. Ako je traka puknuta ili izresana, mijenja se traka, a automat provjerimo usput.'],
     ],

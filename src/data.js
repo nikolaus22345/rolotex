@@ -246,7 +246,7 @@ exports.usluge = [
     slug: 'plise-komarnici', kat: 'komarnici', ime: 'Plise (harmo) komarnici',
     kratko: 'Harmonika komarnici s niskim pragom, idealni za balkonska i terasna vrata.',
     uvod: [
-      'Plise (harmo) komarnik ima mrežu složenu u harmoniku koja klizi postrance. Ima nizak prag preko kojeg se ne spotičete i ostaje u položaju u kojem ga ostavite. Plise (harmo) komarnike {u} ugrađujemo najčešće na balkonska i terasna vrata.',
+      'Plise (harmo) komarnik ima mrežu složenu u harmoniku koja klizi postrance. Ima nizak prag preko kojeg se ne spotičete i ostaje u položaju u kojem ga ostavite. Plise (harmo) komarnike {u} ugrađujemo po mjeri, za sve otvore na kojima to ima smisla.',
       'Rješenje je za široke otvore i klizne stijene, gdje zaokretni komarnik nema kamo otvoriti krilo.',
     ],
     stavke: ['Plise (harmo) komarnici za balkonska vrata', 'Plise (harmo) komarnici za široke i klizne stijene', 'Jednokrilni i dvokrilni', 'Nizak prag'],

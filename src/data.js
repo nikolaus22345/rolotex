@@ -253,13 +253,13 @@ exports.usluge = [
     faq: [['Je li plise (harmo) komarnik osjetljiv?', 'Mreža je čvršća nego što izgleda, ali ne voli naslanjanje i kućne ljubimce. Uz normalno korištenje traje godinama.']],
   },
   {
-    slug: 'komarnici-za-vrata', kat: 'komarnici', ime: 'Komarnici za vrata',
-    kratko: 'Zaokretni i klizni komarnici za balkonska i ulazna vrata.',
+    slug: 'komarnici-za-balkonska-vrata', kat: 'komarnici', ime: 'Komarnici za balkonska vrata',
+    kratko: 'Komarnici za balkonska vrata i balkon po mjeri: zaokretni, klizni i plise (harmo).',
     uvod: [
-      'Za vrata kroz koja se stalno prolazi komarnik mora biti čvrst i lagan za otvaranje. Komarnike za vrata {u} ugrađujemo kao zaokretne (otvaraju se poput vrata) ili klizne (pomiču se postrance po vodilici).',
-      'Zaokretni komarnik sam se zatvara i najbolji je za balkon i terasu. Klizni je logičan izbor uz klizna vrata i ondje gdje krilo nema mjesta za otvaranje.',
+      'Za vrata kroz koja se stalno prolazi komarnik mora biti čvrst i lagan za otvaranje. Komarnike za balkonska vrata {u} ugrađujemo kao zaokretne (otvaraju se poput vrata) ili klizne (pomiču se postrance po vodilici).',
+      'Zaokretni komarnik sam se zatvara i najbolji je za balkon i terasu. Za cijeli balkon radimo komarnike po mjeri otvora balkonskih vrata i prozora. Klizni je logičan izbor uz klizna vrata i ondje gdje krilo nema mjesta za otvaranje.',
     ],
-    stavke: ['Zaokretni komarnici za balkonska vrata', 'Klizni komarnici', 'Plise (harmo) i rolo komarnici za vrata', 'Izrada po mjeri i montaža'],
+    stavke: ['Zaokretni komarnici za balkonska vrata', 'Klizni komarnici za balkon', 'Plise (harmo) i rolo komarnici za balkonska vrata', 'Komarnici za sve otvore na balkonu', 'Izrada po mjeri i montaža'],
     faq: [['Zatvara li se zaokretni komarnik sam?', 'Da, ima šarke s oprugom ili magnet pa se vraća u zatvoreni položaj.']],
   },
   {

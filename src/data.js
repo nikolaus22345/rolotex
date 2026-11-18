@@ -237,10 +237,10 @@ exports.usluge = [
     kratko: 'Komarnik koji se namata u kutiju kad ga ne trebate. Za prozore i vrata.',
     uvod: [
       'Rolo komarnik se spušta kad treba, a inače je namotan u malu kutiju pa ne smeta pogledu ni čišćenju prozora. Nove rolo komarnike {u} ugrađujemo na prozore i balkonska vrata.',
-      'Kroz rolo komarnik prolazi špaga koja drži mrežu u vodilicama. Kad komarnik počne ispadati iz vodilice ili se ne vraća, obično je popustila upravo ta špaga, što se da popraviti.',
+      'Mreža rolo komarnika namata se u kutiju i vodi kroz bočne vodilice. Kad komarnik počne ispadati iz vodilice ili se ne vraća, obično je popustila opruga ili se rasklimao mehanizam, što se da popraviti.',
     ],
     stavke: ['Rolo komarnici za prozore (okomiti)', 'Rolo komarnici za vrata (bočni)', 'Izrada po mjeri', 'Montaža uz postojeće rolete'],
-    faq: [['Rolo komarnik se ne namata do kraja. Može li se popraviti?', 'Najčešće može. Uzrok je obično oslabljena opruga ili špaga mehanizma.']],
+    faq: [['Rolo komarnik se ne namata do kraja. Može li se popraviti?', 'Najčešće može. Uzrok je obično oslabljena opruga ili mehanizam.']],
   },
   {
     slug: 'plise-komarnici', kat: 'komarnici', ime: 'Plise (harmo) komarnici',
@@ -264,13 +264,13 @@ exports.usluge = [
   },
   {
     slug: 'popravak-komarnika', kat: 'komarnici', ime: 'Popravak komarnika',
-    kratko: 'Popravak rolo komarnika: zamjena špage mehanizma, podešavanje i vraćanje u vodilice.',
+    kratko: 'Popravak rolo komarnika: podešavanje mehanizma i opruge te vraćanje u vodilice.',
     uvod: [
-      'Kod rolo i plise (harmo) komarnika najčešće ne strada mreža nego špage koje prolaze kroz mehanizam i mrežu i drže je napetom. Popravak komarnika {u} radimo zamjenom tih špaga i podešavanjem mehanizma.',
-      'Važno je znati: sama mreža na takvom komarniku ne može se zasebno zamijeniti. Mijenjaju se špage, a ako je mreža poderana, rješenje je novi komarnik. To Vam kažemo unaprijed da ne plaćate popravak koji neće držati.',
+      'Kod rolo i plise (harmo) komarnika najčešće ne strada mreža nego mehanizam koji je drži napetom i vodi kroz vodilice. Popravak komarnika {u} radimo podešavanjem i zamjenom dijelova mehanizma.',
+      'Važno je znati: sama mreža na takvom komarniku ne može se zasebno zamijeniti. Popravlja se mehanizam, a ako je mreža poderana, rješenje je novi komarnik. To Vam kažemo unaprijed da ne plaćate popravak koji neće držati.',
     ],
-    stavke: ['Zamjena špage na rolo i plise (harmo) komarnicima', 'Vraćanje mreže u vodilice', 'Podešavanje opruge i kočnice', 'Procjena: popravak ili novi komarnik'],
-    faq: [['Koliko košta zamjena mreže na komarniku?', 'Mreža se ne može zasebno zamijeniti. Mijenjaju se samo špage koje idu kroz mehanizam i mrežu komarnika. Ako je mreža poderana, izrađuje se novi komarnik.']],
+    stavke: ['Popravak mehanizma na rolo i plise (harmo) komarnicima', 'Vraćanje mreže u vodilice', 'Podešavanje opruge i kočnice', 'Procjena: popravak ili novi komarnik'],
+    faq: [['Koliko košta zamjena mreže na komarniku?', 'Mreža se ne može zasebno zamijeniti. Popravlja se mehanizam komarnika. Ako je mreža poderana, izrađuje se novi komarnik.']],
   },
   {
     slug: 'venecijaneri', kat: 'sjenila', ime: 'Venecijaneri',
@@ -460,7 +460,7 @@ exports.faqOpci = [
   ['Popravljate li rolete svih proizvođača?', 'Da, servisiramo PVC i aluminijske rolete svih proizvođača.'],
   ['Isplati li se popravak ili je bolje ugraditi novu roletu?', 'Ovisi o stanju rolete, koje procijenimo na licu mjesta. Ako se popravak ne isplati, to kažemo odmah.'],
   ['Može li se na postojeću roletu ugraditi motor?', 'Ne na svaku. Ovisi o osovini, kutiji i dovodu struje, pa procjenu dajemo nakon pregleda.'],
-  ['Koliko košta zamjena mreže na komarniku?', 'Mreža se ne može zasebno zamijeniti. Mijenjaju se špage koje idu kroz mehanizam i mrežu komarnika; ako je mreža poderana, izrađuje se novi komarnik.'],
+  ['Koliko košta zamjena mreže na komarniku?', 'Mreža se ne može zasebno zamijeniti. Popravlja se mehanizam komarnika; ako je mreža poderana, izrađuje se novi komarnik.'],
   ['Radite li vikendom?', 'Po potrebi i dogovoru. Nedjeljom i blagdanom ne radimo.'],
   ['Koja područja pokrivate?', 'Zagreb sa svim kvartovima, Sesvete, Dugo Selo i Svetu Nedelju, Veliku Goricu po dogovoru te grad Karlovac.'],
 ];

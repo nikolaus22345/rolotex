@@ -166,7 +166,7 @@ exports.usluge = [
       'Aluminijske rolete imaju lamele punjene izolacijskom pjenom pa su čvršće i stabilnije od PVC-a. Bolje podnose sunce, vjetar i tuču i ne mijenjaju oblik na vrućini. Ugradnju novih aluminijskih roleta {u} radimo po mjeri.',
       'Preporučujemo ih za balkonska vrata, široke prozore i južne strane.',
     ],
-    stavke: ['Aluminijske rolete po mjeri', 'Punjene lamele', 'Za velike otvore i balkonska vrata', 'Upravljanje gurtnom ili motorom', 'Izbor boja lamela i kutije'],
+    stavke: ['Aluminijske rolete po mjeri', 'Punjene lamele', 'Za velike otvore, balkonska vrata i standardne prozore', 'Upravljanje gurtnom ili motorom', 'Izbor boja lamela i kutije'],
     faq: [['Jesu li aluminijske rolete bučnije od PVC-a?', 'Pri dizanju i spuštanju zvuk je sličan. Na vjetru su aluminijske mirnije jer su lamele kruće i manje lupaju.']],
   },
   {

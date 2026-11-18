@@ -36,7 +36,8 @@ p{margin:0 0 1em}ul{margin:0 0 1em;padding-left:1.2em}
 .mb{display:none;background:none;border:1px solid rgba(255,255,255,.3);border-radius:10px;width:44px;height:44px;cursor:pointer;padding:0;margin-left:auto}
 .mb span{display:block;width:20px;height:2px;background:#fff;margin:4px auto}
 /* hero */
-.hero{background:linear-gradient(135deg,#111111 0%,#0c2c32 100%);color:#d4d4d4;padding:56px 0 64px;overflow:hidden}
+.hero{position:relative;background:linear-gradient(135deg,#111111 0%,#0c2c32 100%);color:#d4d4d4;padding:56px 0 64px;overflow:hidden}.hero:before{content:"";position:absolute;inset:0;background:url(/logo-pattern.svg) 0 0/400px 260px;opacity:.06;pointer-events:none}.hero .c{position:relative}
+.hero .art.brand{background:rgba(0,0,0,.35);border:1px solid rgba(255,255,255,.1);border-radius:24px;padding:48px 36px;text-align:center;box-shadow:0 20px 50px rgba(0,0,0,.35)}.hero .art.brand img{width:100%;max-width:340px;height:auto;display:block;margin:0 auto}.hero .art.brand p{margin:22px auto 0;font-size:.95rem;letter-spacing:.14em;text-transform:uppercase;color:#a9b4b7;font-weight:600;line-height:1.7}
 .hero .c{display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:center}
 .hero h1{color:#fff}.hero p{font-size:1.1rem;max-width:560px}
 .hero ul{list-style:none;padding:0;margin:26px 0 0;display:grid;gap:10px}
@@ -108,5 +109,5 @@ table{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(-
 .hero .c,.split,.split.eq{grid-template-columns:1fr}.hero .art{max-width:320px;margin:0 auto;order:-1;display:none}
 .g3,.g4{grid-template-columns:repeat(2,1fr)}.ftg{grid-template-columns:repeat(2,1fr)}.fb{grid-column:1/-1}.box{position:static}.s{padding:48px 0}
 }
-@media(max-width:600px){.g3,.g2,.g4{grid-template-columns:1fr}.form .row{grid-template-columns:1fr}.btns .btn{flex:1 1 100%}.hero{padding:36px 0 44px}.hd .c{gap:10px}}
+@media(max-width:600px){.hero:before{opacity:.04}.g3,.g2,.g4{grid-template-columns:1fr}.form .row{grid-template-columns:1fr}.btns .btn{flex:1 1 100%}.hero{padding:36px 0 44px}.hd .c{gap:10px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.card{transition:none}}

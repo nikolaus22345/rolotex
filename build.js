@@ -87,7 +87,7 @@ function recenzije() {
   return `<section class="s alt"><div class="c"><span class="k">Google recenzije</span><h2>Što kažu kupci</h2><div class="g g3">${kart}</div>${firma.googleRecenzijeUrl ? `<p style="margin-top:22px"><a class="btn bw" href="${firma.googleRecenzijeUrl}" rel="noopener">Ostavite recenziju na Googleu</a></p>` : ''}</div></section>`;
 }
 
-const HERO_ART = `<div class="art"><svg viewBox="0 0 360 380" role="img" aria-label="Ilustracija prozora s roletom"><rect x="30" y="20" width="300" height="340" rx="14" fill="#fff" opacity=".05"/><rect x="60" y="48" width="240" height="34" rx="6" fill="#00AAC1"/><rect x="66" y="82" width="228" height="250" fill="#0b1f22" stroke="#1d6772" stroke-width="3"/><path d="M180 82v250M66 240h228" stroke="#1d6772" stroke-width="3"/>${Array.from({ length: 9 }, (_, i) => `<rect x="66" y="${84 + i * 17}" width="228" height="14" rx="2" fill="#e4f6f9" opacity="${1 - i * 0.045}"/>`).join('')}<rect x="66" y="237" width="228" height="8" rx="2" fill="#00AAC1"/><rect x="312" y="90" width="7" height="170" rx="3" fill="#66d3e1"/><rect x="306" y="258" width="19" height="46" rx="5" fill="#00AAC1"/></svg></div>`;
+const HERO_ART = `<div class="art brand"><img src="/logo.svg" alt="${firma.naziv}" width="354" height="171" decoding="async"><p>Servis i ugradnja roleta<br>Zagreb · Karlovac</p></div>`;
 
 /* ---------- layout ---------- */
 function nav() {
@@ -160,7 +160,7 @@ function hero({ k, h1, p, g, crumbs = [], bullets, art }) {
   const bl = bullets || [g ? `Izlazak ${g.u}: ${g.izlazak}` : 'Zagreb: izlazak najčešće unutar 24 do 48 sati', 'Rolete svih proizvođača, PVC i aluminijske', 'Procjena na licu mjesta: popravak ili nova roleta'];
   return `<section class="hero"><div class="c"><div>${bc}<span class="k">${k}</span><h1>${h1}</h1><p>${p}</p>
 <div class="btns"><a class="btn bp" href="#upit">Pošalji upit</a>${callBtns(g, 'bo')}${g ? waBtn(g) : ''}</div>
-<ul>${bl.map((b) => `<li>${I.ok}<span>${b}</span></li>`).join('')}</ul></div>${art === false ? '' : HERO_ART}</div></section>`;
+<ul>${bl.map((b) => `<li>${I.ok}<span>${b}</span></li>`).join('')}</ul></div>${HERO_ART}</div></section>`;
 }
 
 const SKRIVENO = ['popravak-roleta', 'komarnici'];

@@ -244,12 +244,12 @@ exports.usluge = [
   },
   {
     slug: 'plise-komarnici', kat: 'komarnici', ime: 'Plise (harmo) komarnici',
-    kratko: 'Harmonika komarnici s niskim pragom, idealni za balkonska i terasna vrata.',
+    kratko: 'Harmonika komarnici s niskim pragom, po mjeri za vrata, prozore i široke otvore.',
     uvod: [
       'Plise (harmo) komarnik ima mrežu složenu u harmoniku koja klizi postrance. Ima nizak prag preko kojeg se ne spotičete i ostaje u položaju u kojem ga ostavite. Plise (harmo) komarnike {u} ugrađujemo po mjeri, za sve otvore na kojima to ima smisla.',
-      'Rješenje je za široke otvore i klizne stijene, gdje zaokretni komarnik nema kamo otvoriti krilo.',
+      'Rješenje je za široke otvore i klizne stijene, gdje zaokretni komarnik nema kamo otvoriti krilo, ali jednako dobro ide i na standardne prozore.',
     ],
-    stavke: ['Plise (harmo) komarnici za balkonska vrata', 'Plise (harmo) komarnici za široke i klizne stijene', 'Jednokrilni i dvokrilni', 'Nizak prag'],
+    stavke: ['Plise (harmo) komarnici za balkonska vrata', 'Plise (harmo) komarnici za standardne prozore', 'Plise (harmo) komarnici za široke i klizne stijene', 'Jednokrilni i dvokrilni', 'Nizak prag'],
     faq: [['Je li plise (harmo) komarnik osjetljiv?', 'Mreža je čvršća nego što izgleda, ali ne voli naslanjanje i kućne ljubimce. Uz normalno korištenje traje godinama.']],
   },
   {

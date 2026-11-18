@@ -239,7 +239,7 @@ exports.usluge = [
       'Rolo komarnik se spušta kad treba, a inače je namotan u malu kutiju pa ne smeta pogledu ni čišćenju prozora. Nove rolo komarnike {u} ugrađujemo na prozore i balkonska vrata.',
       'Mreža rolo komarnika namata se u kutiju i vodi kroz bočne vodilice. Kad komarnik počne ispadati iz vodilice ili se ne vraća, obično je popustila opruga ili se rasklimao mehanizam, što se da popraviti.',
     ],
-    stavke: ['Rolo komarnici za prozore (okomiti)', 'Rolo komarnici za vrata (bočni)', 'Izrada po mjeri', 'Montaža uz postojeće rolete'],
+    stavke: ['Rolo komarnici za prozore (okomiti)', 'Izrada po mjeri', 'Montaža uz postojeće rolete'],
     faq: [['Rolo komarnik se ne namata do kraja. Može li se popraviti?', 'Najčešće može. Uzrok je obično oslabljena opruga ili mehanizam.']],
   },
   {

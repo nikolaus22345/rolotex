@@ -63,7 +63,7 @@ function forma(g, usluga) {
 function kontaktSekcija(g, usluga) {
   const red = (x) => `<p style="margin:0 0 14px"><b style="color:#fff">${x.ime}</b><br><a href="${telHref(x)}" style="color:#fff;font-size:1.35rem;font-weight:800">${x.tel}</a><br><span style="font-size:.92rem">Izlazak: ${x.izlazak}.</span></p>`;
   return `<section class="s dark" id="kontakt"><div class="c split eq"><div>
-<span class="k">Kontakt</span><h2>Zatražite ponudu${g ? ' ' + g.u : ''}</h2>
+<span class="k">Kontakt</span><h2>Zatražite ponudu</h2>
 <p>Nazovite, pošaljite poruku na WhatsApp ili ispunite formu. Uz fotografiju rolete i kutije možemo unaprijed reći o čemu je riječ.</p>
 ${(g ? [g] : G).map(red).join('')}
 <p><a href="mailto:${firma.email}" style="color:#fff">${firma.email}</a><br><span style="font-size:.92rem">Nedjeljom i blagdanom ne radimo. Vikendom po potrebi i dogovoru.</span></p>
@@ -164,7 +164,7 @@ function hero({ k, h1, p, g, crumbs = [], bullets, art }) {
 }
 
 const SKRIVENO = ['popravak-roleta', 'komarnici'];
-const uslugeKartice = (g, lista = usluge) => `<div class="g g3">${lista.filter((u) => !SKRIVENO.includes(u.slug)).map((u) => `<a class="card" href="${g ? `/${g.slug}/${u.slug}/` : `/usluge/${u.slug}/`}"><div class="ic">${I[u.kat]}</div><h3>${u.ime}${g ? ' ' + g.ime : ''}</h3><p>${u.kratko}</p><span class="more">Više o usluzi →</span></a>`).join('')}</div>`;
+const uslugeKartice = (g, lista = usluge) => `<div class="g g3">${lista.filter((u) => !SKRIVENO.includes(u.slug)).map((u) => `<a class="card" href="${g ? `/${g.slug}/${u.slug}/` : `/usluge/${u.slug}/`}"><div class="ic">${I[u.kat]}</div><h3>${u.ime}</h3><p>${u.kratko}</p><span class="more">Više o usluzi →</span></a>`).join('')}</div>`;
 const lokTags = (lista) => `<ul class="tags">${lista.map((l) => `<li><a href="/${l.grad}/${l.slug}/">${l.ime}</a></li>`).join('')}</ul>`;
 const poSkupinama = (g) => [...new Set(lokacije.filter((l) => l.grad === g.slug).map((l) => l.skupina))].map((s) => `<h3 style="margin-top:22px">${s}</h3>${lokTags(lokacije.filter((l) => l.grad === g.slug && l.skupina === s))}`).join('');
 
@@ -221,13 +221,13 @@ function uslugaPage(u, g) {
     desc: `${u.ime}${g ? ' ' + g.u : ' u Zagrebu i Karlovcu'}. ${u.kratko} ${g ? 'Nazovite ' + g.tel + ' ili pošaljite upit.' : 'Pošaljite upit ili nazovite.'}`,
     ld: [faqLd(faq), { '@type': 'Service', name: h1, serviceType: u.ime, provider: { '@id': SITE + '/#firma' }, areaServed: (g ? [g] : G).map((x) => ({ '@type': 'City', name: x.ime })), description: u.kratko }],
     body: hero({ k: `${kategorije[u.kat]}${g ? ' · ' + g.ime : ''}`, h1, p: u.kratko, g, crumbs })
-      + `<section class="s"><div class="c split"><div><h2>${u.ime}${g ? ' ' + g.u : ''}: što radimo</h2>${u.uvod.map((p) => `<p>${fill(p, g)}</p>`).join('')}
+      + `<section class="s"><div class="c split"><div><h2>${u.ime}: što radimo</h2>${u.uvod.map((p) => `<p>${fill(p, g)}</p>`).join('')}
 ${u.slug === 'pvc-rolete' ? '' : `<h3 style="margin-top:26px">Što je uključeno</h3><ul class="chk">${u.stavke.map((s) => `<li>${s}</li>`).join('')}</ul>`}
-${g ? `<h3 style="margin-top:26px">Dolazak ${g.u}</h3><p>Pokrivamo: ${g.podrucje}. Izlazak na teren: ${g.izlazak}.</p>` : `<h3 style="margin-top:26px">Odaberite grad</h3><div class="btns">${G.map((x) => `<a class="btn bw" href="/${x.slug}/${u.slug}/">${u.ime} ${x.ime}</a>`).join('')}</div>`}
+${g ? `<h3 style="margin-top:26px">Dolazak na teren</h3><p>Pokrivamo: ${g.podrucje}. Izlazak na teren: ${g.izlazak}.</p>` : `<h3 style="margin-top:26px">Odaberite grad</h3><div class="btns">${G.map((x) => `<a class="btn bw" href="/${x.slug}/${u.slug}/">${u.ime} ${x.ime}</a>`).join('')}</div>`}
 </div><aside class="box"><h3>Cijena</h3><p>${u.slug === 'zamjena-gurtne' ? '<b>30 – 40 €</b> za zamjenu gurtne.' : 'Na upit. Ovisi o tipu rolete, dimenzijama i dijelovima; točnu cijenu kažemo prije početka rada.'}</p><h3>Brzi kontakt</h3><div class="btns">${callBtns(g, 'bp')}${waBtn(g)}</div><p style="margin:14px 0 0;font-size:.9rem;color:var(--m)">Pošaljite fotografiju rolete i kutije na WhatsApp za bržu procjenu.</p></aside></div></section>`
-      + (g ? `<section class="s alt"><div class="c"><h2>${u.ime} po kvartovima – ${g.ime}</h2>${poSkupinama(g)}</div></section>` : '')
+      + (g ? `<section class="s alt"><div class="c"><h2>${u.ime} po kvartovima</h2>${poSkupinama(g)}</div></section>` : '')
       + `<section class="s${g ? '' : ' alt'}"><div class="c"><h2>Povezane usluge</h2><div style="margin-top:20px">${uslugeKartice(g, srodne.length ? srodne : usluge.filter((x) => x.top && x.slug !== u.slug))}</div></div></section>`
-      + faqBlock(faq, `${h1}: česta pitanja`) + kontaktSekcija(g, u.ime),
+      + faqBlock(faq, `${u.ime}: česta pitanja`) + kontaktSekcija(g, u.ime),
   });
 }
 usluge.forEach((u) => { uslugaPage(u); G.forEach((g) => uslugaPage(u, g)); });
@@ -242,9 +242,9 @@ G.forEach((g) => {
     desc: `Servis i popravak roleta ${g.u}, zamjena gurtne, nove rolete i komarnici. Izlazak ${g.izlazak}. Nazovite ${g.tel}.`,
     ld: [faqLd(faq)],
     body: hero({ k: `Rolete · ${g.ime}`, h1: `Servis i popravak roleta ${g.ime}`, p: `Popravak i ugradnja roleta, komarnika, žaluzina i zavjesa ${g.u}. Radimo u stanovima i obiteljskim kućama, na roletama svih proizvođača.`, g, crumbs: [[g.ime, url]] })
-      + `<section class="s"><div class="c"><span class="k">Usluge ${g.u}</span><h2>Što radimo ${g.u}</h2><p class="lead">Pokrivamo: ${g.podrucje}. Izlazak na teren: ${g.izlazak}.</p>${Object.entries(kategorije).map(([k, ime]) => `<h3 style="margin:28px 0 14px">${ime}</h3>${uslugeKartice(g, usluge.filter((u) => u.kat === k))}`).join('')}</div></section>`
+      + `<section class="s"><div class="c"><span class="k">Usluge</span><h2>Što radimo</h2><p class="lead">Pokrivamo: ${g.podrucje}. Izlazak na teren: ${g.izlazak}.</p>${Object.entries(kategorije).map(([k, ime]) => `<h3 style="margin:28px 0 14px">${ime}</h3>${uslugeKartice(g, usluge.filter((u) => u.kat === k))}`).join('')}</div></section>`
       + `<section class="s alt"><div class="c"><span class="k">Lokalno</span><h2>${g.slug === 'zagreb' ? 'Kvartovi i mjesta' : 'Gradske četvrti'} – ${g.ime}</h2><p class="lead">Odaberite svoj kvart za detalje o servisu roleta i komarnicima u Vašem dijelu grada.</p>${poSkupinama(g)}</div></section>`
-      + galerijaSekcija(3) + postupak() + recenzije() + faqBlock(faq, `Rolete ${g.ime}: česta pitanja`) + kontaktSekcija(g),
+      + galerijaSekcija(3) + postupak() + recenzije() + faqBlock(faq, 'Česta pitanja') + kontaktSekcija(g),
   });
 });
 

@@ -183,7 +183,6 @@ exports.usluge = [
     slug: 'elektricne-rolete', kat: 'nove', ime: 'Električne rolete i motor za rolete',
     kratko: 'Nove rolete na motor i ugradnja motora na postojeće rolete, gdje je to izvedivo.',
     uvod: [
-      'Električne rolete dižu se i spuštaju prekidačem ili daljinskim, bez trake. Ugrađujemo nove rolete na motor {u}, a na postojeće rolete motor ugrađujemo kad to roleta dopušta.',
       'Otvoreno: motor se ne može ugraditi na svaku postojeću roletu. Ovisi o osovini, veličini kutije, stanju zastora i o tome može li se do prozora dovesti struja. Zato prvo pogledamo roletu i kažemo isplati li se.',
     ],
     stavke: ['Nove rolete s motorom', 'Ugradnja motora na postojeću roletu (nakon pregleda)', 'Upravljanje prekidačem ili daljinskim', 'Podešavanje krajnjih položaja'],

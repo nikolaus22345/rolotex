@@ -105,7 +105,7 @@ exports.usluge = [
     kratko: 'Popravak mehanizma u kutiji: osovina, ležaj, opruga, kolut gurtne.',
     uvod: [
       'Ako roleta škripi, teško se diže ili se namata ukoso, kvar je obično u kutiji: istrošen ležaj, savijena osovina, puknuta opruga ili napukli kolut na koji se namata traka. Zamjenu osovine, ležaja i opruge rolete radimo {u} bez skidanja prozora.',
-      'Otvaramo revizijski poklopac kutije, skidamo zastor s osovine, mijenjamo istrošeni dio i sve vraćamo. Usput provjerimo vješače i traku da se ne vraćamo za mjesec dana zbog sljedećeg dijela.',
+      'Otvaramo poklopac kutije, skidamo zastor s osovine, mijenjamo istrošeni dio i sve vraćamo. Usput provjerimo vješače i traku da se ne vraćamo za mjesec dana zbog sljedećeg dijela.',
     ],
     stavke: ['Zamjena osovine rolete', 'Zamjena ležaja i nosača', 'Zamjena opruge', 'Zamjena koluta (remenice) gurtne', 'Zamjena vješača zastora'],
     faq: [

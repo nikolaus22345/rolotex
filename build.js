@@ -222,7 +222,7 @@ function uslugaPage(u, g) {
     ld: [faqLd(faq), { '@type': 'Service', name: h1, serviceType: u.ime, provider: { '@id': SITE + '/#firma' }, areaServed: (g ? [g] : G).map((x) => ({ '@type': 'City', name: x.ime })), description: u.kratko }],
     body: hero({ k: `${kategorije[u.kat]}${g ? ' · ' + g.ime : ''}`, h1, p: u.kratko, g, crumbs })
       + `<section class="s"><div class="c split"><div><h2>${u.ime}${g ? ' ' + g.u : ''}: što radimo</h2>${u.uvod.map((p) => `<p>${fill(p, g)}</p>`).join('')}
-<h3 style="margin-top:26px">Što je uključeno</h3><ul class="chk">${u.stavke.map((s) => `<li>${s}</li>`).join('')}</ul>
+${u.slug === 'pvc-rolete' ? '' : `<h3 style="margin-top:26px">Što je uključeno</h3><ul class="chk">${u.stavke.map((s) => `<li>${s}</li>`).join('')}</ul>`}
 ${g ? `<h3 style="margin-top:26px">Dolazak ${g.u}</h3><p>Pokrivamo: ${g.podrucje}. Izlazak na teren: ${g.izlazak}.</p>` : `<h3 style="margin-top:26px">Odaberite grad</h3><div class="btns">${G.map((x) => `<a class="btn bw" href="/${x.slug}/${u.slug}/">${u.ime} ${x.ime}</a>`).join('')}</div>`}
 </div><aside class="box"><h3>Cijena</h3><p>${u.slug === 'zamjena-gurtne' ? '<b>30 – 40 €</b> za zamjenu gurtne.' : 'Na upit. Ovisi o tipu rolete, dimenzijama i dijelovima; točnu cijenu kažemo prije početka rada.'}</p><h3>Brzi kontakt</h3><div class="btns">${callBtns(g, 'bp')}${waBtn(g)}</div><p style="margin:14px 0 0;font-size:.9rem;color:var(--m)">Pošaljite fotografiju rolete i kutije na WhatsApp za bržu procjenu.</p></aside></div></section>`
       + (g ? `<section class="s alt"><div class="c"><h2>${u.ime} po kvartovima – ${g.ime}</h2>${poSkupinama(g)}</div></section>` : '')

@@ -275,9 +275,9 @@ exports.usluge = [
     kratko: 'Vanjske žaluzine sa zakretnim lamelama: sjena bez potpunog mraka.',
     uvod: [
       'Vanjske žaluzine zaustavljaju sunce prije nego što dođe do stakla, a zakretanjem lamela birate koliko svjetla ulazi. Za razliku od rolete, prostorija može biti u hladu, a da nije u mraku. Ugradnju vanjskih žaluzina {u} radimo po mjeri.',
-      'Najviše se isplate na velikim staklenim stijenama i južnim pročeljima. Upravljaju se ručno ili motorom.',
+      'Najviše se isplate na velikim staklenim stijenama i južnim pročeljima.',
     ],
-    stavke: ['Vanjske žaluzine po mjeri', 'Zakretne aluminijske lamele', 'Ručno ili motorno upravljanje', 'Montaža i podešavanje'],
+    stavke: ['Vanjske žaluzine po mjeri', 'Zakretne aluminijske lamele', 'Montaža i podešavanje'],
     faq: [['Žaluzine ili rolete?', 'Rolete bolje zamračuju i zatvaraju prozor. Žaluzine bolje doziraju svjetlo. Za spavaće sobe češće rolete, za dnevne boravke s velikim staklima žaluzine.']],
   },
   {

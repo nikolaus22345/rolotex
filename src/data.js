@@ -141,7 +141,7 @@ exports.usluge = [
     kratko: 'Montaža novih PVC i aluminijskih roleta na postojeće i nove prozore.',
     uvod: [
       'Ugradnju novih roleta {u} radimo na postojeću stolariju i na nove prozore, u stanovima i obiteljskim kućama. Nudimo PVC i aluminijske rolete, s gurtnom ili na motor.',
-      'Dolazimo na izmjeru, dogovaramo materijal, boju i način upravljanja, a rolete se izrađuju po mjeri Vašeg otvora. Montaža na prozoru u pravilu ne traži građevinske radove.',
+      'Dolazimo na izmjeru, dogovaramo materijal, boju i način upravljanja, a rolete se izrađuju po mjeri Vašeg otvora.',
     ],
     stavke: ['Izmjera otvora i savjet oko izbora rolete', 'PVC i aluminijske rolete po mjeri', 'Nadžbukne (vanjske) kutije za postojeće prozore', 'Upravljanje gurtnom ili motorom', 'Montaža i podešavanje'],
     faq: [

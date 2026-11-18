@@ -268,6 +268,30 @@ const ROL_TIP = {
   mix: 'Ovisno o zgradi, novi zastor ide u postojeću kutiju ili ugrađujemo kompletnu roletu s vanjskom kutijom, PVC ili aluminijsku.',
 };
 
+const CJENIK = [
+  ['Popravci roleta i zamjena automata', [
+    ['Zamjena gurtne (trake)', 'zamjena-gurtne', '30 – 40 €'],
+    ['Ugradbeni automat za PVC stolariju', 'zamjena-automata-gurtne', '50 €'],
+    ['Zamjena automata (bez gurtne)', 'zamjena-automata-gurtne', 'ovisi o modelu'],
+    ['Zamjena automata (sa gurtnom)', 'zamjena-automata-gurtne', 'ovisi o modelu'],
+    ['Popravak električne rolete', 'popravak-motora-rolete', '40 – 150 €'],
+    ['Zamjena osovine', 'zamjena-osovine-lezaja-opruge', '60 €'],
+  ]],
+  ['Nove rolete', [
+    ['Ugradnja aluminijskih roleta', 'ugradnja-roleta', '180 € / m²'],
+  ]],
+  ['Sjenila i zavjese', [
+    ['Venecijaneri', 'venecijaneri', '70 € / m²'],
+    ['Rolo platna', 'rolo-zavjese', '85 – 100 € / m²', 'Cijena ovisi o dizajnu i dimenzijama.'],
+    ['Trakaste zavjese', 'trakaste-zavjese', '80 € / m²'],
+  ]],
+  ['Komarnici', [
+    ['Fiksni komarnici', 'fiksni-komarnici', '60 € / m²'],
+    ['Rolo komarnici', 'rolo-komarnici', '100 € / m²'],
+    ['Plise (harmo) komarnici', 'plise-komarnici', '130 – 140 € / m²'],
+  ]],
+];
+
 lokacije.forEach((l) => {
   const g = gradovi[l.grad];
   const base = `/${g.slug}/${l.slug}/`;
@@ -343,11 +367,11 @@ page({
 
 // Cijene
 page({
-  url: '/cijene/', title: 'Cijene – servis roleta, zamjena gurtne, komarnici | Rolotex',
-  desc: 'Cijena zamjene gurtne 30 – 40 €. Cijene ostalih popravaka, novih roleta i komarnika na upit: pošaljite fotografiju i dimenzije.',
+  url: '/cijene/', title: 'Cijene roleta, komarnika i zavjesa – okvirno | Rolotex',
+  desc: 'Okvirne cijene popravka i zamjene roleta, ugradnje aluminijskih roleta, komarnika i zavjesa u Zagrebu i Karlovcu. Cijene su s PDV-om, točnu određujemo na terenu.',
   crumbs: [['Cijene', '/cijene/']],
-  body: hero({ k: 'Cijene', h1: 'Cijene servisa roleta i komarnika', p: 'Cijenu uvijek znate prije početka rada. Za okvirnu procjenu pošaljite fotografiju rolete i kutije te približne dimenzije.', crumbs: [['Cijene', '/cijene/']], art: false })
-    + `<section class="s"><div class="c" style="max-width:860px"><table><thead><tr><th>Usluga</th><th>Cijena</th></tr></thead><tbody><tr><td><a href="/usluge/zamjena-gurtne/">Zamjena gurtne (trake)</a></td><td><b>30 – 40 €</b></td></tr>${usluge.filter((u) => u.slug !== 'zamjena-gurtne').map((u) => `<tr><td><a href="/usluge/${u.slug}/">${u.ime}</a></td><td>na upit</td></tr>`).join('')}</tbody></table><p style="margin-top:18px;color:var(--m)">Cijene popravaka ovise o dijelovima koje treba zamijeniti, a cijene novih roleta, komarnika i zavjesa o dimenzijama i materijalu. Cjenik ćemo dopunjavati.</p></div></section>` + kontaktSekcija(),
+  body: hero({ k: 'Cijene', h1: 'Cijene roleta, komarnika i zavjesa', p: 'Istaknute cijene su okvirne i služe kao orijentir. Točna cijena ovisi o stanju rolete, dimenzijama i izvedbi te se određuje na terenu.', crumbs: [['Cijene', '/cijene/']], art: false })
+    + `<section class="s"><div class="c" style="max-width:860px">${CJENIK.map(([naslov, redovi]) => `<h2 style="font-size:1.35rem;margin:${naslov === CJENIK[0][0] ? '0' : '34px'} 0 14px">${naslov}</h2><table><thead><tr><th>Usluga</th><th>Cijena</th></tr></thead><tbody>${redovi.map(([ime, slug, cijena, nap]) => `<tr><td><a href="/usluge/${slug}/">${ime}</a>${nap ? `<br><small style="color:var(--m)">${nap}</small>` : ''}</td><td style="white-space:nowrap"><b>${cijena}</b></td></tr>`).join('')}</tbody></table>`).join('')}<p style="margin-top:22px;color:var(--m)"><b style="color:var(--n)">Sve navedene cijene su s uračunatim PDV-om.</b> Cijene su okvirne i služe kao orijentir, a variraju ovisno o stanju rolete, dimenzijama i izvedbi. Točnu cijenu određujemo na terenu, prije početka rada. Za brzu procjenu pošaljite fotografiju i približne dimenzije.</p></div></section>` + kontaktSekcija(),
 });
 
 // FAQ

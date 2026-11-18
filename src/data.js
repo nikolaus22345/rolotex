@@ -70,7 +70,7 @@ exports.usluge = [
       'Gurtna je traka kojom dižete i spuštate roletu i dio je koji se najbrže troši. Kad se počne resati, zapinjati u vodilici ili pukne, roleta ostaje u položaju u kojem se zatekla. Zamjena gurtne {u} jedan je od naših najčešćih poslova.',
       'Staru traku vadimo, namatamo novu na osovinu i u automat te provjeravamo ide li roleta do kraja gore i dolje. Zamjena gurtne košta 30 – 40 €. Ako je uz traku oslabio i automat za namatanje, mijenjamo ga u istom dolasku.',
     ],
-    stavke: ['Zamjena puknute gurtne', 'Zamjena izlizane trake koja se resa', 'Uske i široke gurtne, za prozore i balkonska vrata', 'Provjera automata, vodilice trake i osovine', 'Po potrebi zamjena automata u istom dolasku'],
+    stavke: ['Zamjena puknute gurtne', 'Zamjena izlizane trake koja se resa', 'Uske i široke gurtne, za prozore i balkonska vrata', 'Provjera automata', 'Po potrebi zamjena automata u istom dolasku'],
     faq: [
       ['Koliko košta zamjena gurtne (trake) na roleti?', 'Zamjena gurtne košta 30 – 40 €.'],
       ['Mogu li sami zamijeniti gurtnu?', 'Može se, ali treba otvoriti kutiju rolete i pravilno namotati traku na osovinu i automat. Ako opruga automata iskoči ili se traka krivo namota, roleta neće ići do kraja.'],

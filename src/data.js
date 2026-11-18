@@ -306,7 +306,7 @@ exports.usluge = [
     slug: 'rolo-platna', kat: 'sjenila', ime: 'Rolo platna',
     kratko: 'Rolo platna po mjeri: prozirne, zatamnjujuće ili potpuno zamračenje.',
     uvod: [
-      'Rolo platna (rolo zavjese) namataju se na osovinu iznad prozora i upravljaju lančićem. Ugradnju i servis rolo platna {u} radimo po mjeri, na krilo prozora, zid ili strop.',
+      'Rolo platna namataju se na osovinu iznad prozora i upravljaju lančićem. Ugradnju i servis rolo platna {u} radimo po mjeri, na krilo prozora, zid ili strop.',
       'Platno birate prema prostoriji: prozirnije za dnevni boravak, zatamnjujuće za radnu sobu, a blackout za spavaću i dječju sobu.',
     ],
     stavke: ['Rolo platna po mjeri', 'Prozirna, zatamnjujuća i blackout platna', 'Montaža na krilo bez bušenja gdje je moguće', 'Servis: zamjena lančića i mehanizma'],

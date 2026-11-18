@@ -163,7 +163,8 @@ function hero({ k, h1, p, g, crumbs = [], bullets, art }) {
 <ul>${bl.map((b) => `<li>${I.ok}<span>${b}</span></li>`).join('')}</ul></div>${art === false ? '' : HERO_ART}</div></section>`;
 }
 
-const uslugeKartice = (g, lista = usluge) => `<div class="g g3">${lista.map((u) => `<a class="card" href="${g ? `/${g.slug}/${u.slug}/` : `/usluge/${u.slug}/`}"><div class="ic">${I[u.kat]}</div><h3>${u.ime}${g ? ' ' + g.ime : ''}</h3><p>${u.kratko}</p><span class="more">Više o usluzi →</span></a>`).join('')}</div>`;
+const SKRIVENO = ['popravak-roleta', 'komarnici'];
+const uslugeKartice = (g, lista = usluge) => `<div class="g g3">${lista.filter((u) => !SKRIVENO.includes(u.slug)).map((u) => `<a class="card" href="${g ? `/${g.slug}/${u.slug}/` : `/usluge/${u.slug}/`}"><div class="ic">${I[u.kat]}</div><h3>${u.ime}${g ? ' ' + g.ime : ''}</h3><p>${u.kratko}</p><span class="more">Više o usluzi →</span></a>`).join('')}</div>`;
 const lokTags = (lista) => `<ul class="tags">${lista.map((l) => `<li><a href="/${l.grad}/${l.slug}/">${l.ime}</a></li>`).join('')}</ul>`;
 const poSkupinama = (g) => [...new Set(lokacije.filter((l) => l.grad === g.slug).map((l) => l.skupina))].map((s) => `<h3 style="margin-top:22px">${s}</h3>${lokTags(lokacije.filter((l) => l.grad === g.slug && l.skupina === s))}`).join('');
 

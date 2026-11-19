@@ -169,7 +169,7 @@ const lokTags = (lista) => `<ul class="tags">${lista.map((l) => `<li><a href="/$
 const poSkupinama = (g) => [...new Set(lokacije.filter((l) => l.grad === g.slug).map((l) => l.skupina))].map((s) => `<h3 style="margin-top:22px">${s}</h3>${lokTags(lokacije.filter((l) => l.grad === g.slug && l.skupina === s))}`).join('');
 
 const PREDNOSTI = [
-  ['Kažemo što je potrgano', 'Otvorimo kutiju, pokažemo kvar i objasnimo što se mijenja. Ako se popravak ne isplati, čujete to prije nego što išta platite.'],
+  ['Kažemo što je pokvareno', 'Otvorimo kutiju, pokažemo kvar i objasnimo što se mijenja. Ako se popravak ne isplati, čujete to prije nego što išta platite.'],
   ['Javite se kako Vam je lakše', 'Telefon, WhatsApp ili forma. Fotografija kvara preko WhatsAppa često je dovoljna za okvirnu procjenu.'],
   ['Zna se gdje i kada dolazimo', 'Zagreb sa svim kvartovima i grad Karlovac, s jasnim rokovima izlaska za svaki grad.'],
   ['Popravak prije zamjene', 'Većina roleta se da popraviti. Novu roletu predlažemo tek kad je stara stvarno gotova.'],
@@ -293,7 +293,7 @@ const CJENIK = [
   ['Komarnici', [
     ['Fiksni komarnici', 'fiksni-komarnici', '60 € / m²'],
     ['Rolo komarnici', 'rolo-komarnici', '100 € / m²'],
-    ['Plise (harmo) komarnici', 'plise-komarnici', '130 – 140 € / m²'],
+    ['Plise (harmo) komarnici', 'plise-komarnici', '110 – 140 € / m²'],
   ]],
 ];
 

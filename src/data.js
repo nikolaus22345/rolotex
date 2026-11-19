@@ -42,9 +42,9 @@ exports.usluge = [
     kratko: 'Servis svih vrsta roleta: gurtne, automati, lamele, osovine, ležajevi i motori.',
     uvod: [
       'Roleta koja zapinje, teško se diže ili se više ne spušta do kraja gotovo se uvijek može servisirati, bez kupnje nove. Radimo servis roleta {u} na PVC i aluminijskim roletama svih proizvođača, u stanovima i obiteljskim kućama.',
-      'Na licu mjesta otvaramo kutiju, pregledamo mehanizam i kažemo što je točno potrgano. Najčešće je riječ o gurtni (traci), automatu za namatanje, potrganim vješačima, ležaju ili osovini. Ako se popravak ne isplati, to ćemo reći odmah i predložiti zamjenu rolete.',
+      'Na licu mjesta otvaramo kutiju, pregledamo mehanizam i kažemo što je točno pokvareno. Najčešće je riječ o gurtni (traci), automatu za namatanje, slomljenim vješačima, ležaju ili osovini. Ako se popravak ne isplati, to ćemo reći odmah i predložiti zamjenu rolete.',
     ],
-    stavke: ['Zamjena gurtne (trake) i automata za namatanje', 'Zamjena potrganih i izblijedjelih lamela', 'Zamjena osovine, ležaja, opruge i vješača', 'Vraćanje rolete koja je pala u kutiju ili izašla iz vodilica', 'Popravak i zamjena motora na električnim roletama', 'Podešavanje graničnika i vodilica'],
+    stavke: ['Zamjena gurtne (trake) i automata za namatanje', 'Zamjena oštećenih i izblijedjelih lamela', 'Zamjena osovine, ležaja, opruge i vješača', 'Vraćanje rolete koja je pala u kutiju ili izašla iz vodilica', 'Popravak i zamjena motora na električnim roletama', 'Podešavanje graničnika i vodilica'],
     faq: [
       ['Popravljate li rolete svih proizvođača?', 'Da. Servisiramo PVC i aluminijske rolete svih proizvođača, starije i novije, s gurtnom, ručicom ili motorom.'],
       ['Isplati li se servis ili je bolje ugraditi novu roletu?', 'Ovisi o stanju rolete, koje procijenimo na licu mjesta. Ako su lamele i kutija u dobrom stanju, popravak mehanizma je u pravilu puno povoljniji od nove rolete.'],
@@ -57,7 +57,7 @@ exports.usluge = [
       'Puknuta traka, roleta koja visi ukoso, lamele koje su iskočile iz vodilice ili roleta koja se uopće ne miče – to su kvarovi koje popravljamo svaki dan. Popravak roleta (mnogi kažu i roletni) {u} radimo u stanovima i kućama, na prozorima i balkonskim vratima.',
       'Kvar pokušavamo riješiti u jednom dolasku. Zato je korisno da nam uz upit pošaljete fotografiju rolete i kutije preko WhatsAppa: tako znamo koje dijelove ponijeti.',
     ],
-    stavke: ['Roleta se ne diže ili se ne spušta', 'Puknuta ili izlizana gurtna', 'Roleta je pala i ostala u kutiji', 'Roleta visi ukoso ili zapinje u vodilici', 'Potrgane lamele ili završna letvica', 'Električna roleta ne reagira na prekidač ili daljinski'],
+    stavke: ['Roleta se ne diže ili se ne spušta', 'Puknuta ili izlizana gurtna', 'Roleta je pala i ostala u kutiji', 'Roleta visi ukoso ili zapinje u vodilici', 'Oštećene lamele ili završna letvica', 'Električna roleta ne reagira na prekidač ili daljinski'],
     faq: [
       ['Koliko brzo dolazite na popravak?', 'U Zagrebu najčešće unutar 24 do 48 sati. U Karlovcu izlazimo po dogovoru, najčešće četvrtkom ili petkom.'],
       ['Mogu li poslati sliku kvara?', 'Da, i preporučujemo to. Pošaljite fotografiju rolete i kutije na WhatsApp pa ćemo Vam okvirno reći o čemu je riječ prije dolaska.'],
@@ -90,9 +90,9 @@ exports.usluge = [
   },
   {
     slug: 'zamjena-lamela', kat: 'servis', ime: 'Zamjena lamela na roleti',
-    kratko: 'Zamjena potrganih, napuklih ili izblijedjelih lamela, pojedinačno ili cijelog zastora.',
+    kratko: 'Zamjena slomljenih, napuklih ili izblijedjelih lamela, pojedinačno ili cijelog zastora.',
     uvod: [
-      'Lamele su letvice od kojih je složen zastor rolete. Pucaju od sunca, tuče i starosti, a jedna potrgana lamela zna zaglaviti cijelu roletu. Zamjenu lamela {u} radimo pojedinačno ili kao zamjenu cijelog zastora, ovisno o tome koliko ih je oštećeno.',
+      'Lamele su letvice od kojih je složen zastor rolete. Pucaju od sunca, tuče i starosti, a jedna slomljena lamela zna zaglaviti cijelu roletu. Zamjenu lamela {u} radimo pojedinačno ili kao zamjenu cijelog zastora, ovisno o tome koliko ih je oštećeno.',
       'Kod starijih roleta ista lamela često se više ne proizvodi. Tada je bolje rješenje novi zastor u postojećoj kutiji i vodilicama: dobijete praktički novu roletu bez radova na prozoru.',
     ],
     stavke: ['Zamjena pojedinih lamela', 'Novi PVC ili aluminijski zastor u postojeću kutiju', 'Zamjena završne letvice i graničnika', 'Zamjena vješača koji drže zastor na osovini'],
@@ -116,8 +116,8 @@ exports.usluge = [
     slug: 'popravak-zaglavljene-rolete', kat: 'servis', ime: 'Popravak zaglavljene rolete',
     kratko: 'Roleta je pala, zaglavila se ili ostala u kutiji? Vraćamo je u funkciju.',
     uvod: [
-      'Zaglavljena roleta ostane napola spuštena, padne do kraja i više se ne da podići ili se cijela namota u kutiju. Uzrok su najčešće potrgani vješači, lamela koja je izašla iz vodilice ili puknuta traka. Popravak zaglavljene ili pale rolete radimo {u} na svim tipovima roleta.',
-      'Ne povlačite roletu na silu: tako se obično potrga još nekoliko lamela. Javite se, pošaljite fotografiju i ostavite je kako jest dok ne dođemo.',
+      'Zaglavljena roleta ostane napola spuštena, padne do kraja i više se ne da podići ili se cijela namota u kutiju. Uzrok su najčešće slomljeni vješači, lamela koja je izašla iz vodilice ili puknuta traka. Popravak zaglavljene ili pale rolete radimo {u} na svim tipovima roleta.',
+      'Ne povlačite roletu na silu: tako se obično ošteti još nekoliko lamela. Javite se, pošaljite fotografiju i ostavite je kako jest dok ne dođemo.',
     ],
     stavke: ['Roleta pala do kraja i ne diže se', 'Roleta se namotala i ostala u kutiji', 'Roleta zaglavljena na pola prozora', 'Lamele iskočile iz vodilice', 'Roleta visi na jednu stranu'],
     faq: [
@@ -133,7 +133,7 @@ exports.usluge = [
     ],
     stavke: ['Dijagnostika kvara električne rolete', 'Zamjena pregorjelog cijevnog motora', 'Podešavanje krajnjih položaja'],
     faq: [
-      ['Roleta zuji, ali se ne miče. Je li motor gotov?', 'Ne mora biti. Zna biti zaglavljen zastor ili potrgan spoj osovine i motora. Na licu mjesta provjerimo što je uzrok prije nego što se išta mijenja.'],
+      ['Roleta zuji, ali se ne miče. Je li motor gotov?', 'Ne mora biti. Zna biti zaglavljen zastor ili oštećen spoj osovine i motora. Na licu mjesta provjerimo što je uzrok prije nego što se išta mijenja.'],
     ],
   },
   {
@@ -171,7 +171,7 @@ exports.usluge = [
   },
   {
     slug: 'zamjena-starih-roleta', kat: 'nove', ime: 'Zamjena starih roleta', top: true,
-    kratko: 'Stare, potrgane rolete van – nove unutra, u postojeću kutiju gdje god je moguće.',
+    kratko: 'Stare, oštećene rolete van – nove unutra, u postojeću kutiju gdje god je moguće.',
     uvod: [
       'Kad su lamele izgorjele od sunca, napukle ili se više ne mogu nabaviti, popravak nema smisla. Zamjenu starih roleta novima {u} radimo tako da, gdje god je moguće, zadržimo postojeću kutiju i vodilice i mijenjamo samo zastor i mehanizam.',
       'Tako nema razbijanja ni radova oko prozora, a dobijete roletu koja radi kao nova. Ako su i kutija i vodilice dotrajale, ugrađujemo kompletnu novu roletu.',
